@@ -65,6 +65,7 @@ public class DonationController {
 	public ModelAndView createGet(@ModelAttribute("createForm") final CreateForm createForm) {
 		final ModelAndView mav = new ModelAndView("form");
 		mav.addObject("bloodTypes", BloodType.values());
+		mav.addObject("hospitalNum", CreateForm.HOSPITALS);
 		return mav;
 	}
 	

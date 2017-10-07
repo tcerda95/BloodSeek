@@ -2,6 +2,43 @@ body {
     background-color: #EEEEEE;
 }
 
+.filters {
+    position: fixed;
+    padding-left: 2rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.75rem;
+}
+
+.filtersTitle {
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.applyBtn {
+    background-color: #e40406 !important;
+    background: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.applyBtn:hover {
+    color: white;
+    font-size: 1.5rem !important;
+    background-color: #c50305 !important;
+    letter-spacing: 1px;
+}
+
+.applyBtnContainer {
+    margin-top: 2rem;
+}
+
+.nearContainer {
+
+}
+
 .titlecontainer {
     margin-top: 5rem;
     margin-bottom: 3rem;

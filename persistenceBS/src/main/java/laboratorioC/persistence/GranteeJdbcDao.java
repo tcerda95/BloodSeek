@@ -97,7 +97,12 @@ public class GranteeJdbcDao implements GranteeDao {
 			relationArgs.put("granteeId", granteeId.intValue());
 			relationArgs.put("hospitalId", hospitalDao.getHospitalByAddress(address).getId());
 			
-			donationsInsert.execute(relationArgs);
+			try {
+				donationsInsert.execute(relationArgs);
+			}
+			catch(Exception e) {
+				System.out.println("duplicate entities");
+			}
 		}
 		
 		return new Grantee(granteeId.intValue(), name, description, password, bloodType, getGranteeHospitals(granteeId.intValue()), age, donorsNeeded, 0);
