@@ -23,4 +23,8 @@ public class IndexController {
 		
 	}
 
+	@RequestMapping("/help")
+	public ModelAndView help() {
+		return new ModelAndView("help");
+	}
 }
