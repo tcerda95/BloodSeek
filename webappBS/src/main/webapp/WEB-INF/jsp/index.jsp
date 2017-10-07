@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="laboratorioC.model.BloodType" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -15,9 +18,11 @@
 
 <body>
 
+<%
+    List<String> bloodTypeFilter = new ArrayList<>();
+%>
 <script>
     var param = document.URL.split("#")[1]
-    console.log(param)
     for (var i = 0, len = param.length; i < len; i++) {
         console.log(param[i])
     }
@@ -30,7 +35,6 @@
                 <img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
             </a>
         </div>
-
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
@@ -61,15 +65,15 @@
                     <div class="col-md-10 col-md-offset-2">
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="OChkBox" type="checkbox" aria-label="...">
                                 <span>
-                            O+
-                        </span>
+                                        O+
+                                    </span>
                             </div>
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="OOChkBox" type="checkbox" aria-label="...">
                                 <span>
                             O-
                         </span>
@@ -77,7 +81,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="AChkBox" type="checkbox" aria-label="...">
                                 <span>
                             A+
                         </span>
@@ -85,7 +89,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="AAChkBox" type="checkbox" aria-label="...">
                                 <span>
                             A-
                         </span>
@@ -93,7 +97,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="BChkBox" type="checkbox" aria-label="...">
                                 <span>
                             B+
                         </span>
@@ -101,7 +105,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="BBChkBox" type="checkbox" aria-label="...">
                                 <span>
                             B-
                         </span>
@@ -109,7 +113,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="CChkBox" type="checkbox" aria-label="...">
                                 <span>
                             AB+
                         </span>
@@ -117,7 +121,7 @@
                         </div>
                         <div class="input-group">
                             <div class="row">
-                                <input type="checkbox" aria-label="...">
+                                <input id="CCChkBox" type="checkbox" aria-label="...">
                                 <span>
                             AB-
                         </span>
@@ -175,7 +179,7 @@
                                             <div class="blood-types grantee-bloodType">
                                                 <c:forEach items="${g.acceptedDonors}" var="blood">
                                                     <span class="blood-type">
-                                                        ${blood.name}
+                                                            ${blood.name}
                                                     </span>
                                                 </c:forEach>
                                             </div>
