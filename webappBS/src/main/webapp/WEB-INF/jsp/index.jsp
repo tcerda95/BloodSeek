@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-11 col-md-offset-1">
                 <div class="row">
-                    <span>Tipo de sangre necesitada:</span>
+                    <span>Receptor:</span>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2">
