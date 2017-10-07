@@ -18,21 +18,11 @@
 
 <body>
 
-<%
-    List<String> bloodTypeFilter = new ArrayList<>();
-%>
-<script>
-//    var param = document.URL.split("#")[1]
-//    for (var i = 0, len = param.length; i < len; i++) {
-//        console.log(param[i])
-//    }
-</script>
-
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="<c:url value="/"/>">
-                <img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+                <img alt="Bloodseek" src="<c:url value="/resources/img/logo2.png"/>">
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">

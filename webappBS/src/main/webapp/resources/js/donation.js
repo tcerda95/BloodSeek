@@ -34,3 +34,16 @@ $('#copy-link-btn').on('click', function(event) {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+//html2canvas(document.body, {
+//    proxy: 'html2canvasproxy.php',
+//    useCORS: true,
+//	allowTaint: false,
+//    onrendered: function (canvas) {
+//        var dataUrl= canvas.toDataURL("image/png");
+//		document.body.appendChild(canvas);
+//		console.log(dataUrl);
+//    },
+//	  width: 620,
+//  height: 500
+//});
