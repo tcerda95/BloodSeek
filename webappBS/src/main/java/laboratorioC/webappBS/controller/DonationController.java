@@ -57,7 +57,5 @@ public class DonationController {
 		System.out.println(createForm.getBloodType());
 		
 		return new ModelAndView("redirect:/donation/");
-		
-		
 	}
 }

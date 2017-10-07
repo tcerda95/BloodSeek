@@ -23,8 +23,14 @@ public class IndexController {
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 
-//		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", null,
-//				new Hospital(1, "Hospital ASD", "Dir", 56.0, 65.0), 21, 50, 35);
+		Hospital h1 = new Hospital(1, "Hospital Alemán", "Dir", 56.0, 65.0);
+		Hospital h2 = new Hospital(1, "Hospital Ruso", "Dir", 56.0, 65.0);
+		List<Hospital> hospitals = new ArrayList<Hospital>();
+		hospitals.add(h1);
+		hospitals.add(h2);
+
+		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", null,
+				hospitals, 21, 50, 35);
 
 		List<Grantee> l = new ArrayList<>();
 		//l.add(g);

@@ -54,6 +54,11 @@ body {
 	font-weight: 700;
 }
 
+.ageContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
 .grantee-age {
 	font-size: 2rem;
     color: #7b7b7b;
