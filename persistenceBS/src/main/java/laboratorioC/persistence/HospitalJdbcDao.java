@@ -45,11 +45,16 @@ public class HospitalJdbcDao implements HospitalDao {
 
 	@Override
 	public Hospital getHospitalByAddress(final String address) {
-		final List<Hospital> hospitalList = jdbcTemplate.query("SELECT * FROM hospital WHERE hospitalAddress = ?", hospitalMapper, address);
+		final List<Hospital> hospitalList = jdbcTemplate.query("SELECT * FROM hospitals WHERE hospitalAddress = ?", hospitalMapper, address);
 		
 		if (hospitalList.isEmpty())
 			return null;
 		
 		return hospitalList.get(0);
+	}
+
+	@Override
+	public List<Hospital> getHospitals() {
+		return jdbcTemplate.query("SELECT * FROM hospitals", hospitalMapper);
 	}
 }

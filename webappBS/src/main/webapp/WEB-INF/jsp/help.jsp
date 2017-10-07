@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -9,14 +11,14 @@
 		        <div class="panel panel-default ">
 		            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
 		                 <h4 class="panel-title">
-							<a href="#" class="ing">¿Por qué donar sangre?</a>
+							<a href="#" class="ing">Â¿Por quÃ© donar sangre?</a>
 		              	</h4>
 		            </div>
 		            <div id="question0" class="panel-collapse collapse" style="height: 0px;">
 		                <div class="panel-body">
-		                     <h5><span class="label label-primary">Answer</span></h5>
+		                     <h5><span class="label label-primary"></span></h5>
 		                    <p>
-		                    Porque a pesar de los avances científicos y tecnológicos, la sangre humana no puede producirse artificialmente y debe proceder de la generosidad del ser humano, único capaz de fabricarla en su propio organismo.
+		                    Porque a pesar de los avances cientÃ­ficos y tecnolÃ³gicos, la sangre humana no puede producirse artificialmente y debe proceder de la generosidad del ser humano, Ãºnico capaz de fabricarla en su propio organismo.
 		                    </p>
 		                </div>
 		            </div>
@@ -24,7 +26,7 @@
 		        <div class="panel panel-default ">
 		            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question1">
 		                 <h4 class="panel-title">
-		                    <a href="#" class="ing">¿Qué necesito para donar sangre?</a>
+		                    <a href="#" class="ing">Â¿QuÃ© necesito para donar sangre?</a>
 		              </h4>
 		
 		            </div>
@@ -32,15 +34,15 @@
 		                <div class="panel-body">
 		                     <h5><span class="label label-primary"></span></h5>
 		                    <p>
-		                    	Edad: 18 a 65 años 
-							Entre 16 y 18 años, con autorización de los padres. 
+		                    	Edad: 18 a 65 aÃ±os 
+							Entre 16 y 18 aÃ±os, con autorizaciÃ³n de los padres. 
 							Concurrir con DNI. 
 							No es necesario estar en ayunas. (Evitar grasas y lacteos) 
 							Estar en buen estado de salud. 
 							Descansar bien previamente. 
-							Pesar más de 50 kg. 
+							Pesar mÃ¡s de 50 kg. 
 							Si es mujer, no estar embarazada ni dentro de las 8 semanas posteriores. 
-							Tatuajes y piercings deben tener más de seis meses de realizados para donar
+							Tatuajes y piercings deben tener mÃ¡s de seis meses de realizados para donar
 		                    </p>
 		                </div>
 		            </div>
@@ -48,7 +50,7 @@
 		        <div class="panel panel-default ">
 		            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question2">
 		                 <h4 class="panel-title">
-		                    <a href="#" class="ing">¿A quién le puedo donar sangre?</a>
+		                    <a href="#" class="ing">Â¿A quiÃ©n le puedo donar sangre?</a>
 		              </h4>
 		
 		            </div>
@@ -64,5 +66,9 @@
 		    </div>
 		    <!--/panel-group-->
 		</div>
+		<%-- jQuery --%>
+		<script type="text/javascript" src="<c:url value="https://code.jquery.com/jquery-2.1.1.min.js"/>"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
 </html>
