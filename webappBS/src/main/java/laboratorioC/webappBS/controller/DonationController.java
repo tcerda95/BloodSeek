@@ -51,7 +51,7 @@ public class DonationController {
 		Grantee grantee;
 		//Tomar los datos del formulario y registrar al grantee
 		grantee = gs.createGrantee(createForm.getName(), createForm.getDescription(), createForm.getPassword(),
-				createForm.getBloodType(), createForm.getHospital(), createForm.getAge(), createForm.getDonorsNeeded());
+				createForm.getBloodType(), null /*createForm.getHospital()*/, createForm.getAge(), createForm.getDonorsNeeded());
 		
 		return new ModelAndView("redirect:/donation/" + grantee.getId());
 		
