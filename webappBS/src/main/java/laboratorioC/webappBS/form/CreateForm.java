@@ -1,11 +1,9 @@
 package laboratorioC.webappBS.form;
 
 import laboratorioC.model.BloodType;
-import laboratorioC.model.Hospital;
 
 public class CreateForm {
 
-	private int id;
 	private String name;
 	private String description;
 	private String password;
@@ -13,14 +11,7 @@ public class CreateForm {
 	private String hospital;
 	private int age;
 	private int donorsNeeded;
-	private int actualDonated;
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -63,13 +54,5 @@ public class CreateForm {
 	public void setDonorsNeeded(int donorsNeeded) {
 		this.donorsNeeded = donorsNeeded;
 	}
-	public int getActualDonated() {
-		return actualDonated;
-	}
-	public void setActualDonated(int actualDonated) {
-		this.actualDonated = actualDonated;
-	}
 	
-	
-
 }

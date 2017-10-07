@@ -8,6 +8,6 @@ import laboratorioC.model.Grantee;
 public interface GranteeDao {
 	Grantee getGranteeById(int id);
 	List<Grantee> getGrantees();
-	Grantee createGrantee(int id, String name, String description, String password, BloodType bloodType, String hospitalAddress, 
+	Grantee createGrantee(String name, String description, String password, BloodType bloodType, String hospitalAddress, 
 			int age, int donorsNeeded);
 }

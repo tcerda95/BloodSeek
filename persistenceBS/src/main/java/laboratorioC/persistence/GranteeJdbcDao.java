@@ -64,7 +64,7 @@ public class GranteeJdbcDao implements GranteeDao {
 
 	@SuppressWarnings("boxing")
 	@Override
-	public Grantee createGrantee(int id, String name, String description, String password, BloodType bloodType,
+	public Grantee createGrantee(String name, String description, String password, BloodType bloodType,
 			String hospitalAddress, int age, int donorsNeeded) {
 		
 		final Map<String, Object> args = new HashMap<>();
