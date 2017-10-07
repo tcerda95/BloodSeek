@@ -40,20 +40,23 @@ public class DonationController {
     }
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.GET })
-	public ModelAndView create() {
-		ModelAndView mav = new ModelAndView("create");
+	public ModelAndView createGet(@ModelAttribute("createForm") final CreateForm createForm) {
+		final ModelAndView mav = new ModelAndView("form");
 		mav.addObject("bloodTypes", BloodType.values());
 		return mav;
 	}
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.POST })
-	public ModelAndView create(@ModelAttribute("createForm") final CreateForm createForm) {
+	public ModelAndView createPost(@ModelAttribute("createForm") final CreateForm createForm) {
 		Grantee grantee;
 		//Tomar los datos del formulario y registrar al grantee
-		grantee = gs.createGrantee(createForm.getName(), createForm.getDescription(), createForm.getPassword(),
-				createForm.getBloodType(), createForm.getHospital(), createForm.getAge(), createForm.getDonorsNeeded());
+		//grantee = gs.createGrantee(createForm.getName(), createForm.getDescription(), createForm.getPassword(),
+		//		createForm.getBloodType(), createForm.getHospital(), createForm.getAge(), createForm.getDonorsNeeded());
 		
-		return new ModelAndView("redirect:/donation/" + grantee.getId());
+		System.out.println(createForm.getName());
+		System.out.println(createForm.getBloodType());
+		
+		return new ModelAndView("redirect:/donation/");
 		
 		
 	}

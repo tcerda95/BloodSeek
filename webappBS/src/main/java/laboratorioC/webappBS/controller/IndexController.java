@@ -23,11 +23,11 @@ public class IndexController {
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 
-		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", null,
-				new Hospital(1, "Hospital ASD", "Dir", 56.0, 65.0), 21, 50, 35);
+//		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", null,
+//				new Hospital(1, "Hospital ASD", "Dir", 56.0, 65.0), 21, 50, 35);
 
 		List<Grantee> l = new ArrayList<>();
-		l.add(g);
+		//l.add(g);
 		mav.addObject("grantees",l);
 //		mav.addObject("grantees",gs.getGranteeList());
 
