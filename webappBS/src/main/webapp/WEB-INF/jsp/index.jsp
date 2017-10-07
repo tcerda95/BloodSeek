@@ -14,7 +14,24 @@
 </head>
 
 <body>
-<%@include file="navbar.jsp" %>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="<c:url value="/"/>">
+                <img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">¿Cómo dono?</a></li>
+            </ul>
+            <button type="button" class="btn navbar-btn ask-donation-btn">Pedir donación</button>
+        </div>
+    </div>
+</nav>
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -38,12 +55,11 @@
                         <div class="row">
                             <div class="grantee-nameContainer">
                                 <div class="grantee-name">
-                                    <%--${g.name}--%>
-                                    Pedro Balaguer
+                                    ${g.name}
+                                    <%--Pedro Balaguer--%>
                                 </div>
-                                <div class="grantee-age">
-                                    <%--${g.age} años--%>
-                                    21 años
+                                <div class="ageContainer">
+                                    <span class="grantee-age">${g.age} años</span>
                                 </div>
                             </div>
                         </div>
@@ -74,68 +90,19 @@
                                     <%--</div>--%>
                                 <%--</div>--%>
                                 <div class="row">
-                                    <div class="grantee-hospital">
-                                        <%--${g.hospital}--%>
-                                        <span>Hospital Alemán</span>
-                                    </div>
+                                        <c:forEach items="${g.hospitals}" var="h">
+                                            <div class="grantee-hospital">
+                                                ${h.name}
+                                            </div>
+                                        </c:forEach>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="percentageContainer">
                                     <div class="completedPercentage">
-                                        <%--${g.actualDonated / g.donorsNeeded}%--%>
-                                        <span>50%</span>
+                                        ${1.0 * g.actualDonated / g.donorsNeeded * 100}%
+                                        <%--50%--%>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            <div class="grantee-card">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="imgContainer">
-                            <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="grantee-nameContainer">
-                                <div class="grantee-name">
-                                    <%--${g.name}--%>
-                                    "Pedro Balaguer"
-                                </div>
-                                <div class="grantee-age">
-                                    <%--${g.age} años--%>
-                                    21 años
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="grantee-bloodType">
-                                        <%--${g.bloodType}--%>
-                                        O+
-                                    </div>
-                                </div>
-                                <%--<div class="row">--%>
-                                    <%--<div class="grantee-remainingTime">--%>
-                                        <%--26 días restantes--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                                <div class="row">
-                                    <div class="grantee-hospital">
-                                        <%--${g.hospital}--%>
-                                        HospitalASD
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="completedPercentage">
-                                    <%--${g.actualDonated / g.donorsNeeded}%--%>
-                                    50%
                                 </div>
                             </div>
                         </div>
