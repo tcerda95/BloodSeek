@@ -29,6 +29,7 @@ body {
     font-size: 1.5rem !important;
     background-color: #c50305 !important;
     letter-spacing: 1px;
+	
 }
 
 .applyBtnContainer {
@@ -64,6 +65,7 @@ body {
     background-color: #DDDDDD;
     font-size: 1.5rem;
     cursor: pointer;
+	transition: all 0.2s;
 }
 
 .cardInfoContainer {

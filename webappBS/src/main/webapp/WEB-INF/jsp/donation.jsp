@@ -35,6 +35,10 @@
 						<div class="row">
 							<div class="col-md-12">
 								<span class="grantee-name">${grantee.name}</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
 								<span class="grantee-age">${grantee.age} años</span>
 							</div>
 						</div>
