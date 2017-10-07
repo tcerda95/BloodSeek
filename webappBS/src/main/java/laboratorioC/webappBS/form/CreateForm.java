@@ -10,10 +10,11 @@ public class CreateForm {
 	private String description;
 	private String password;
 	private BloodType bloodType;
-	private Hospital hospital;
+	private String hospital;
 	private int age;
 	private int donorsNeeded;
 	private int actualDonated;
+	
 	public int getId() {
 		return id;
 	}
@@ -44,10 +45,10 @@ public class CreateForm {
 	public void setBloodType(BloodType bloodType) {
 		this.bloodType = bloodType;
 	}
-	public Hospital getHospital() {
+	public String getHospital() {
 		return hospital;
 	}
-	public void setHospital(Hospital hospital) {
+	public void setHospital(String hospital) {
 		this.hospital = hospital;
 	}
 	public int getAge() {

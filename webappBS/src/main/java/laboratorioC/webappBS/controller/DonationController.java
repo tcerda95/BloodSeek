@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import laboratorioC.model.BloodType;
 import laboratorioC.model.Grantee;
 import laboratorioC.service.GranteeService;
 import laboratorioC.webappBS.form.CreateForm;
@@ -33,7 +34,9 @@ public class DonationController {
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.GET })
 	public ModelAndView create() {
-		return new ModelAndView("create");
+		ModelAndView mav = new ModelAndView("create");
+		mav.addObject("bloodTypes", BloodType.values());
+		return mav;
 	}
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.POST })
@@ -42,7 +45,7 @@ public class DonationController {
 		Grantee grantee;
 		
 		//Tomar los datos del formulario y registrar el grantee
-		//grantee = gs....()....
+		//grantee = gs....()...
 		
 		return new ModelAndView("redirect:/"); //deberia ir a la publicacion .. return new ModelAndView("redirect:/donation/" + grantee.getId())
 		
