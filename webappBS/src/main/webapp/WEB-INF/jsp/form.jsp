@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
-				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+				<li><a href="<c:url value="/help"/>">Ayuda</a></li>
             </ul>
         </div>
     </div>
