@@ -21,20 +21,21 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-1"> 
 			<ul class="nav navbar-nav">
 				<li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
-				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+				<li><a href="<c:url value="/help"/>">Ayuda</a></li>
 			  </ul>
 			<a href="<c:url value="/create"/>" class="btn navbar-btn ask-donation-btn">Pedir donación</a>
 		</div>
 	</div>
 </nav>
-		<div class="container">
+		<div class="container" id="img-canvas">
 			<div class="row">
 				<div class="col-md-5">
+					<div id="img-canvas">
 					<div class="row">
 						<div class="row">
 							<div class="col-md-12">
-								<span class="grantee-name">Luciano Bianchi</span>
-								<span class="grantee-age">21 años</span>
+								<span class="grantee-name">${grantee.name}</span>
+								<span class="grantee-age">${grantee.age} años</span>
 							</div>
 						</div>
 						<div class="row">
@@ -49,64 +50,65 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="blood-types">
-											<span class="blood-type">
-												A+
-											</span>
-											<span class="blood-type">
-												A-
-											</span>
-											<span class="blood-type">
-												B+
-											</span>
-											<span class="blood-type">
-												B-
-											</span>
-											<span class="blood-type">
-												O-
-											</span>
+											 <c:forEach items="${donorBloodTypes}" var="bloodType">
+												<span class="blood-type">
+													${bloodType.name}
+												</span>
+											</c:forEach>
 										</div>
 									</div>
 								</div>
 							</div> 
 						</div>
+<!--
 						<div class="row">
 							<div class="col-md-12">
 								<div class="donation-limit-date">Necesita donaciones hasta el: 08/10/2017</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-7">
-					<p class="grantee-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida massa et sapien vehicula, et varius augue ultrices. Ut posuere eros quis ligula iaculis sollicitudin. Vestibulum odio felis, luctus vel sapien vitae, gravida dignissim metus. Quisque hendrerit neque ut lorem eleifend ullamcorper. Ut tincidunt vulputate velit, a posuere orci aliquam in. In hac habitasse platea dictumst. Maecenas et nisi augue. Nunc mollis nec mauris eu dignissim. Sed euismod sem ac consequat iaculis. Maecenas facilisis laoreet nisi, in sagittis nunc vehicula non. Fusce blandit volutpat justo, eu sodales orci aliquet in. Morbi aliquam, turpis ut maximus consectetur, mi velit vehicula orci, quis mattis risus tortor ac nunc. Aliquam cursus velit ac massa mollis eleifend. In hac habitasse platea dictumst. Nam magna velit, commodo in elit quis, bibendum vehicula neque.</p>
-				</div>
-			</div>	
-			<!-- hospitales -->
-			<div class="row">
-				<div class="col-md-5">
-					<div class="row">
+-->
+						<div class="row">
 						<div class="col-md-12">
 							<div class="where-to-donate">¿Donde donar?</div>
 						</div>
 					</div>
+						<c:forEach items="${hospitalsAvailable}" var="hospital">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="donation-place panel panel-default place-panel">
+										<div class="panel-body">
+											<div class="donation-place-name">${hospital.name}</div>
+											<div class="donation-place-info">${hospital.address}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach> 
+					</div>					
+					</div>
+				</div>
+				<div class="col-md-7">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="donation-place panel panel-default">
+							<div class="grantee-msg">Mensaje de ${grantee.name}:</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						<p class="grantee-bio">${grantee.description}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="donation-place-name">Hospital de Clínicas</div>
-									<div class="donation-place-info">Montes de Oca 380</div>
+									<div id="googleMap" style="width:100%;height:400px;"></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-7">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<div id="googleMap" style="width:100%;height:400px;"></div>
-						</div>
-					</div>
-				</div>
-			</div>
+			</div>	
 			<div class="row">
 				<div class="col-md-12">
 					<span>
@@ -155,6 +157,31 @@
 			return t;
 		}(document, "script", "twitter-wjs"));
 		</script>
+		
+		<script>
+		function myMap() {
+			var mapProp= {
+				center:new google.maps.LatLng(${hospitalsAvailable[0].latitude},${hospitalsAvailable[0].longitude}),
+				zoom:12,
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+			
+			<c:forEach items="${hospitalsAvailable}" var="hospital" varStatus="loop">
+				var marker${loop.index} = new google.maps.Marker({
+					position: new google.maps.LatLng(${hospital.latitude}, ${hospital.longitude})
+				});
+
+				var infowindow${loop.index} = new google.maps.InfoWindow({
+					content: "${hospital.name}"
+				});
+
+				infowindow${loop.index}.open(map, marker${loop.index});
+
+				marker${loop.index}.setMap(map);
+			</c:forEach>
+		};		
+		</script>
+		
 		<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>

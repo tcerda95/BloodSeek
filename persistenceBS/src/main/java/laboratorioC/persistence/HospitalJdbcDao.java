@@ -26,7 +26,7 @@ public class HospitalJdbcDao implements HospitalDao {
 		@Override
 		public Hospital mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Hospital(rs.getInt("hospitalId"), rs.getString("hospitalName"), rs.getString("hospitalAddress"), 
-					rs.getDouble("latitude"), rs.getDouble("longitude"));
+					rs.getFloat("latitude"), rs.getFloat("longitude"));
 		}
 		
 	};
@@ -64,6 +64,11 @@ public class HospitalJdbcDao implements HospitalDao {
 	@Override
 	public Hospital createHospital(String name, String address, float latitude, float longitude) {
 		final Map<String, Object> args = new HashMap<>();
+		
+		Hospital hospital = getHospitalByAddress(address);
+		
+		if (hospital != null)
+			return hospital;
 		
 		args.put("hospitalName", name);
 		args.put("hospitalAddress", address);
