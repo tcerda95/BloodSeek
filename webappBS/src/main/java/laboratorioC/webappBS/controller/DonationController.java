@@ -27,9 +27,16 @@ public class DonationController {
 		
 		mav.addObject("grantee",grantee);
 		
-		return null;
-		
+		return mav;	
 	}
+	
+   @RequestMapping("/donation")
+    public ModelAndView profileTest() {
+        
+        ModelAndView mav = new ModelAndView("donation");
+        
+        return mav; 
+    }
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.GET })
 	public ModelAndView create() {
