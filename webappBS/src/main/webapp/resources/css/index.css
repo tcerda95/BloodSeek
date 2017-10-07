@@ -17,21 +17,21 @@ body {
 }
 
 .grantee-card {
-	height: 15rem;
+	height: 18rem;
 	background-color: white;
     font-size: 1.5rem;
-    margin-top: 3rem;
-    border-style: solid;
-    border-color: #7b7b7b;
-    border-width: 2px;
 }
 
 .grantee-card:hover {
-    height: 15rem;
+    height: 18rem;
     background-color: #DDDDDD;
     font-size: 1.5rem;
-    margin-top: 3rem;
     cursor: pointer;
+}
+
+.cardInfoContainer {
+    /*padding-left: 3rem;*/
+    padding-right: 2rem;
 }
 
 .grantee-img {

@@ -44,71 +44,75 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <c:forEach items="${grantees}" var="g">
-            <div class="grantee-card">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="imgContainer">
-                            <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="grantee-nameContainer">
-                                <div class="grantee-name">
-                                    ${g.name}
-                                    <%--Pedro Balaguer--%>
-                                </div>
-                                <div class="ageContainer">
-                                    <span class="grantee-age">${g.age} años</span>
-                                </div>
+            <div class="panel panel-default grantee-card">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="imgContainer">
+                                <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-8">
+                        <div class="col-md-9">
+                            <div class="cardInfoContainer">
                                 <div class="row">
-                                    <div class="blood-types grantee-bloodType">
-											<span class="blood-type">
-												A+
-											</span>
-                                        <span class="blood-type">
-												A-
-											</span>
-                                        <span class="blood-type">
-												B+
-											</span>
-                                        <span class="blood-type">
-												B-
-											</span>
-                                        <span class="blood-type">
-												O-
-											</span>
+                                    <div class="grantee-nameContainer">
+                                        <div class="grantee-name">
+                                                ${g.name}
+                                                <%--Pedro Balaguer--%>
+                                        </div>
+                                        <div class="ageContainer">
+                                            <span class="grantee-age">${g.age} años</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <%--<div class="row">--%>
-                                    <%--<div class="grantee-remainingTime">--%>
-                                        <%--26 días restantes--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
                                 <div class="row">
-                                        <c:forEach items="${g.hospitals}" var="h">
-                                            <div class="grantee-hospital">
-                                                ${h.name}
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="blood-types grantee-bloodType">
+                                                <span class="blood-type">
+                                                    A+
+                                                </span>
+                                                <span class="blood-type">
+                                                    A-
+                                                </span>
+                                                <span class="blood-type">
+                                                    B+
+                                                </span>
+                                                <span class="blood-type">
+                                                    B-
+                                                </span>
+                                                <span class="blood-type">
+                                                    O-
+                                                </span>
                                             </div>
-                                        </c:forEach>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="percentageContainer">
-                                    <div class="completedPercentage">
-                                        ${1.0 * g.actualDonated / g.donorsNeeded * 100}%
-                                        <%--50%--%>
+                                        </div>
+                                            <%--<div class="row">--%>
+                                            <%--<div class="grantee-remainingTime">--%>
+                                            <%--26 días restantes--%>
+                                            <%--</div>--%>
+                                            <%--</div>--%>
+                                        <div class="row">
+                                            <c:forEach items="${g.hospitals}" var="h">
+                                                <div class="grantee-hospital">
+                                                        ${h.name}
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="percentageContainer">
+                                            <div class="completedPercentage">
+                                                    ${1.0 * g.actualDonated / g.donorsNeeded * 100}%
+                                                    <%--50%--%>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </c:forEach>
     </div>
 </div>
