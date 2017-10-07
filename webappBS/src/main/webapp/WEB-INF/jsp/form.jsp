@@ -86,12 +86,14 @@
 				</div>
 				
 				<c:forEach begin="0" end="${hospitalNum}" var="idx">
-					<div class="panel panel-default col-md-4 col-md-offset-3 hospital-card hospital-hide" id="hospital-card${idx}">
-						<div class="row">
-							<div class="col-md-12 hospital-name"></div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 hospital-address"></div>
+					<div class="panel panel-default col-md-5 col-md-offset-3 hospital-card hospital-hide" id="hospital-card${idx}">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12 hospital-name"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 hospital-address"></div>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -141,13 +143,12 @@
 			console.log(autocomplete.getPlace());
 			
 			var place = autocomplete.getPlace();
-			var frontAddr = place.address_components[1].short_name + " " + place.address_components[0].short_name + ", " + 
-						place.address_components[4].short_name + ", " + place.address_components[5].short_name;
+			var frontAddr = place.formatted_address;
 
 			console.log($("#hospitals" + hospitalNum + "\\.name"));
 			
 			$("#hospitals" + hospitalNum + "\\.name").attr("value", place.name);
-			$("#hospitals" + hospitalNum + "\\.address").attr("value", place.address_components[1].long_name + " " + place.address_components[0].long_name);
+			$("#hospitals" + hospitalNum + "\\.address").attr("value", place.formatted_address);
 			$("#hospitals" + hospitalNum + "\\.latitude").attr("value", place.geometry.location.lat());
 			$("#hospitals" + hospitalNum + "\\.longitude").attr("value", place.geometry.location.lng());
 
