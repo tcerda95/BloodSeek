@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import laboratorioC.model.BloodType;
 import laboratorioC.model.Grantee;
+import laboratorioC.model.Hospital;
 import laboratorioC.service.GranteeService;
 import laboratorioC.service.HospitalService;
 import laboratorioC.webappBS.form.CreateForm;
@@ -34,8 +35,9 @@ public class DonationController {
 		
 		Grantee grantee = gs.getGranteeById(id);
 		
-		mav.addObject("grantee",grantee);
-		
+		mav.addObject("grantee", grantee);
+		mav.addObject("donorBloodTypes", grantee.getAcceptedDonors());
+		mav.addObject("hospitalsAvailable", grantee.getHospitals());
 		return mav;	
 	}
 	
@@ -43,6 +45,18 @@ public class DonationController {
     public ModelAndView profileTest() {
         
         ModelAndView mav = new ModelAndView("donation");
+        
+        List<Hospital> hospitals = new ArrayList<>();
+        hospitals.add(new Hospital(1, "Hospital de Niños", "Montes de oca 380", 43, 43));
+        hospitals.add(new Hospital(2, "Hospital de Viejos", "Montes de oca 381", 41, -43));
+        hospitals.add(new Hospital(3, "Hospital de Animales", "Montes de oca 100", -43, 43));
+        
+        Grantee grantee = new Grantee(1, "Luciano Bianchi", "Dame sangre o me muero soy re buena persona y estudio mucho", 
+                "abcd", BloodType.A_PLUS, hospitals, 21, 32, 10);
+                
+        mav.addObject("grantee", grantee);
+        mav.addObject("donorBloodTypes", grantee.getAcceptedDonors());
+        mav.addObject("hospitalsAvailable", grantee.getHospitals());
         
         return mav; 
     }

@@ -27,6 +27,7 @@
 }
 
 .where-to-donate {
+	margin-top: 1em;
 	font-size: 2em;
 	margin-bottom: 10px;
 }
@@ -44,3 +45,13 @@
 }
 
 
+
+.place-panel {
+	margin-bottom: 5px;
+}
+
+.grantee-msg {
+	font-weight: 300;
+	letter-spacing: 1px;
+	text-decoration: underline;
+}
