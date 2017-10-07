@@ -3,8 +3,7 @@ package laboratorioC.model;
 import java.util.List;
 
 public class Grantee {
-
-	private int id;
+	private final int id;
 	private final String name;
 	private final String description;
 	private final String password;
