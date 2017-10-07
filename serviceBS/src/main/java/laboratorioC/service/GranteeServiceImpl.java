@@ -1,5 +1,7 @@
 package laboratorioC.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,15 @@ public class GranteeServiceImpl implements GranteeService {
 	private GranteeDao granteeDao;
 
 	@Override
-	public Grantee getGrantee() {
-		return granteeDao.getGrantee();
+	public Grantee getGranteeById(int id) {
+		return granteeDao.getGranteeById(id);
 	}
+
+	@Override
+	public List<Grantee> getGranteeList() {
+		return granteeDao.getGrantees();
+	}
+	
+	
 	
 }

@@ -37,10 +37,18 @@ public class GranteeJdbcDao implements GranteeDao {
 				.usingGeneratedKeyColumns("granteeid");
 	}
 	
-	public Grantee getGrantee() {
-		final List<Grantee> grantee = jdbcTemplate.query("SELECT * FROM grantees", granteeMapper);
+	public Grantee getGranteeById(int id) {
+		final Grantee grantee = (Grantee) jdbcTemplate.query("SELECT * FROM grantees WHERE id = " + id , granteeMapper);
 		
-		return grantee.isEmpty() ? new Grantee("Anónimo") : grantee.get(0);
+		return grantee;
 	}
+
+	@Override
+	public List<Grantee> getGrantees() {
+		final List<Grantee> grantees = jdbcTemplate.query("SELECT * FROM grantees", granteeMapper);
+		
+		return grantees;
+	}
+
 
 }
