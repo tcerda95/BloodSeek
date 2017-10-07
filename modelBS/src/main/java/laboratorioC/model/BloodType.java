@@ -14,17 +14,22 @@ public enum BloodType {
 	AB_PLUS("AB+", new String[] {"O_MINUS", "O_PLUS", "A_MINUS", "A_PLUS", "B_MINUS", "B_PLUS", "AB_MINUS", "AB_PLUS"});
 	
 	private final String name;
-	private final List<BloodType> acceptedBloodTypes = new ArrayList<>();
+	private final List<String> acceptedBloodTypes = new ArrayList<>();
 	
 	private BloodType(final String name, final String[] acceptedDonors) {
 		this.name = name;
 		
 		for (final String str : acceptedDonors)
-			acceptedBloodTypes.add(BloodType.valueOf(str));
+			acceptedBloodTypes.add(str);
 	}
 	
 	public List<BloodType> getAcceptedBloodTypes() {
-		return acceptedBloodTypes;
+		final List<BloodType> ans = new ArrayList<>();
+		
+		for (String str : acceptedBloodTypes)
+			ans.add(BloodType.valueOf(str));
+		
+		return ans;
 	}
 	
 	public String getName() {

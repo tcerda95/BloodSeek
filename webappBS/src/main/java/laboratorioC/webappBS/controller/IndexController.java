@@ -33,7 +33,7 @@ public class IndexController {
 				hospitals, 21, 50, 35);
 
 		List<Grantee> l = new ArrayList<>();
-		l.add(g);
+		//l.add(g);
 		mav.addObject("grantees",l);
 //		mav.addObject("grantees",gs.getGranteeList());
 
