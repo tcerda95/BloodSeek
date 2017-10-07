@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import laboratorioC.model.BloodType;
 import laboratorioC.model.Grantee;
 import laboratorioC.service.GranteeService;
 import laboratorioC.webappBS.form.CreateForm;
@@ -27,24 +28,32 @@ public class DonationController {
 		
 		mav.addObject("grantee",grantee);
 		
-		return null;
-		
+		return mav;	
 	}
+	
+   @RequestMapping("/donation")
+    public ModelAndView profileTest() {
+        
+        ModelAndView mav = new ModelAndView("donation");
+        
+        return mav; 
+    }
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.GET })
 	public ModelAndView create() {
-		return new ModelAndView("create");
+		ModelAndView mav = new ModelAndView("create");
+		mav.addObject("bloodTypes", BloodType.values());
+		return mav;
 	}
 	
 	@RequestMapping(value = "/create", method = { RequestMethod.POST })
-	public ModelAndView create(@ModelAttribute("createForm") final CreateForm createUserForm) {
-		
+	public ModelAndView create(@ModelAttribute("createForm") final CreateForm createForm) {
 		Grantee grantee;
+		//Tomar los datos del formulario y registrar al grantee
+		grantee = gs.createGrantee(createForm.getName(), createForm.getDescription(), createForm.getPassword(),
+				createForm.getBloodType(), createForm.getHospital(), createForm.getAge(), createForm.getDonorsNeeded());
 		
-		//Tomar los datos del formulario y registrar el grantee
-		//grantee = gs....()....
-		
-		return new ModelAndView("redirect:/"); //deberia ir a la publicacion .. return new ModelAndView("redirect:/donation/" + grantee.getId())
+		return new ModelAndView("redirect:/donation/" + grantee.getId());
 		
 		
 	}

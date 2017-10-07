@@ -1,19 +1,24 @@
 package laboratorioC.model;
 
 public class Hospital {
-
+	private final int id;
 	private final String name;
 	private final String address;
-	private final int latitude;
-	private final int longitude;
+	private final double latitude;
+	private final double longitude;
 	
-	public Hospital(final String name, final String address, final int latitude, final int longitude) {
+	public Hospital(final int id, final String name, final String address, final double latitude, final double longitude) {
+		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
 
+	public int getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -22,11 +27,11 @@ public class Hospital {
 		return address;
 	}
 
-	public int getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public int getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
@@ -34,8 +39,7 @@ public class Hospital {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + latitude;
-		result = prime * result + longitude;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -48,10 +52,17 @@ public class Hospital {
 		if (!(obj instanceof Hospital))
 			return false;
 		Hospital other = (Hospital) obj;
-		if (latitude != other.latitude)
-			return false;
-		if (longitude != other.longitude)
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 }
