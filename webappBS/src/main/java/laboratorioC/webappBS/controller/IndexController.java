@@ -17,7 +17,7 @@ public class IndexController {
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 		
-		mav.addObject("grantees",gs.getGranteeList());
+		mav.addObject("grantees", gs.getGranteeList());
 		
 		return mav;
 		
