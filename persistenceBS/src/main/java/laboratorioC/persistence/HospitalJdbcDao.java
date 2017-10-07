@@ -2,7 +2,9 @@ package laboratorioC.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -56,5 +58,20 @@ public class HospitalJdbcDao implements HospitalDao {
 	@Override
 	public List<Hospital> getHospitals() {
 		return jdbcTemplate.query("SELECT * FROM hospitals", hospitalMapper);
+	}
+
+	@SuppressWarnings("boxing")
+	@Override
+	public Hospital createHospital(String name, String address, float latitude, float longitude) {
+		final Map<String, Object> args = new HashMap<>();
+		
+		args.put("hospitalName", name);
+		args.put("hospitalAddress", address);
+		args.put("latitude", latitude);
+		args.put("longitude", longitude);
+		
+		final Number hospitalId = jdbcInsert.executeAndReturnKey(args);		
+		
+		return new Hospital(hospitalId.intValue(), name, address, latitude, longitude);
 	}
 }

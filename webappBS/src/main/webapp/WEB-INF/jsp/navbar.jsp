@@ -7,8 +7,8 @@
 				<img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
 			</a>
 		</div>
-		
-		<div class="collapse navbar-collapse" id="navbar-collapse-1"> 
+
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
 				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>

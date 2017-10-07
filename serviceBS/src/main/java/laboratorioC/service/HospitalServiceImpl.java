@@ -28,5 +28,15 @@ public class HospitalServiceImpl implements HospitalService {
 	public List<Hospital> getHospitals() {
 		return hospitalDao.getHospitals();
 	}
+	
+	@Override
+	public Hospital createHospital(String name, String address, float latitude, float longitude) {
+		Hospital hospital = getHospitalByAddress(address);
+		
+		if (hospital == null)
+			return hospitalDao.createHospital(name, address, latitude, longitude);
+
+		return hospital;
+	}
 
 }

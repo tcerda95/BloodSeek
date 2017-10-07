@@ -27,7 +27,7 @@ public class GranteeServiceImpl implements GranteeService {
 
 	@Override
 	public Grantee createGrantee(String name, String description, String password, BloodType bloodType,
-			String hospitalAddress, int age, int donorsNeeded) {
-		return granteeDao.createGrantee(name, description, password, bloodType, hospitalAddress, age, donorsNeeded);
+			List<String> hospitalsAddress, int age, int donorsNeeded) {
+		return granteeDao.createGrantee(name, description, password, bloodType, hospitalsAddress, age, donorsNeeded);
 	}
 }
