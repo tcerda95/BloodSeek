@@ -22,10 +22,10 @@
     List<String> bloodTypeFilter = new ArrayList<>();
 %>
 <script>
-    var param = document.URL.split("#")[1]
-    for (var i = 0, len = param.length; i < len; i++) {
-        console.log(param[i])
-    }
+//    var param = document.URL.split("#")[1]
+//    for (var i = 0, len = param.length; i < len; i++) {
+//        console.log(param[i])
+//    }
 </script>
 
 <nav class="navbar navbar-default">
