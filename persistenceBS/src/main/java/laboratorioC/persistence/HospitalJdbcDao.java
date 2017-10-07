@@ -37,12 +37,12 @@ public class HospitalJdbcDao implements HospitalDao {
 		
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("hospitals")
-				.usingGeneratedKeyColumns("hospitalId");
+				.usingGeneratedKeyColumns("hospitalid");
 	}
 	
 	@Override
 	public List<Hospital> getHospitalsByName(final String name) {
-		return jdbcTemplate.query("SELECT * FROM hospitals WHERE hospitalId = ?", hospitalMapper, name);
+		return jdbcTemplate.query("SELECT * FROM hospitals WHERE hospitalid = ?", hospitalMapper, name);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class HospitalJdbcDao implements HospitalDao {
 		args.put("latitude", latitude);
 		args.put("longitude", longitude);
 		
-		final Number hospitalId = jdbcInsert.executeAndReturnKey(args);		
+		final Number hospitalId = jdbcInsert.executeAndReturnKey(args);	
 		
 		return new Hospital(hospitalId.intValue(), name, address, latitude, longitude);
 	}

@@ -77,10 +77,10 @@
 							<input class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
 						</div>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
-							<form:input type="text" path="hospitals[${status.index}].name" class="hide"/>
-							<form:input type="text" path="hospitals[${status.index}].address" class="hide"/>
-							<form:input type="text" path="hospitals[${status.index}].latitude" class="hide"/>
-							<form:input type="text" path="hospitals[${status.index}].longitude" class="hide"/>
+							<form:input type="text" data-find="" path="hospitals[${status.index}].name" class="hide"/>
+							<form:input type="text" data-find="" path="hospitals[${status.index}].address" class="hide"/>
+							<form:input type="text" data-find="" path="hospitals[${status.index}].latitude" class="hide"/>
+							<form:input type="text" data-find="" path="hospitals[${status.index}].longitude" class="hide"/>
 						</c:forEach>
 					</div>
 				</div>
@@ -143,11 +143,13 @@
 			var place = autocomplete.getPlace();
 			var frontAddr = place.address_components[1].short_name + " " + place.address_components[0].short_name + ", " + 
 						place.address_components[4].short_name + ", " + place.address_components[5].short_name;
+
+			console.log($("#hospitals" + hospitalNum + "\\.name"));
 			
-			$("#hospitals[" + hospitalNum + "].name").val(place.name);
-			$("#hospitals[" + hospitalNum + "].address").val(place.address_components[1].long_name + " " + place.address_components[0].long_name);
-			$("#hospitals[" + hospitalNum + "].latitude").val(place.geometry.location.lat());
-			$("#hospitals[" + hospitalNum + "].longitude").val(place.geometry.location.lng());
+			$("#hospitals" + hospitalNum + "\\.name").attr("value", place.name);
+			$("#hospitals" + hospitalNum + "\\.address").attr("value", place.address_components[1].long_name + " " + place.address_components[0].long_name);
+			$("#hospitals" + hospitalNum + "\\.latitude").attr("value", place.geometry.location.lat());
+			$("#hospitals" + hospitalNum + "\\.longitude").attr("value", place.geometry.location.lng());
 
 			$("#hospital-card"+ hospitalNum).show()
 			$("#hospital-card"+ hospitalNum).find(".hospital-name").append(place.name);
