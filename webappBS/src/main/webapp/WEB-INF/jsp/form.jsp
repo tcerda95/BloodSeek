@@ -73,7 +73,9 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<label class="col-sm-3 control-label">Punto de donación:</label>
-						<input id="place-input" type="text" class="form-control" placeholder="Punto de donación"/>
+						<div class="col-sm-6" >
+							<input class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
+						</div>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
 							<form:input type="text" path="hospitals[${status.index}].name" class="hide"/>
 							<form:input type="text" path="hospitals[${status.index}].address" class="hide"/>
@@ -82,16 +84,19 @@
 						</c:forEach>
 					</div>
 				</div>
-				<div class="hospital-card hide">
-					<div class="row">
-						<div class="col-md-12 hospital-name">
+				
+				<c:forEach begin="0" end="${hospitalNum}" var="idx">
+					<div class="hospital-card hide" id="hospital-card${idx}">
+						<div class="row">
+							<div class="col-md-12 hospital-name">
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 hospital-address">
+						<div class="row">
+							<div class="col-md-12 hospital-address">
+							</div>
 						</div>
-					</div>
-				<div>
+					<div>
+				</c:forEach>
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="description" class ="col-sm-3 control-label">Mensaje del donatario:</form:label>
@@ -120,20 +125,40 @@
 
 
 	<%-- index.js --%>
-	<script type="text/javascript" src="<c:url value='/resources/js/index.js'/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/index.js"/>"></script>
 	<%-- jQuery --%>
-	<script type="text/javascript" src="<c:url value='https://code.jquery.com/jquery-2.1.1.min.js'/>"></script>
+	<script type="text/javascript" src="<c:url value="https://code.jquery.com/jquery-2.1.1.min.js"/>"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script>
-		function mapForm() {
-			var input = document.getElementById("place-input");
 
-			var autocomplete = new google.maps.places.Autocomplete(input, {});
-			autocomplete.addListener('place_changed', function() {
-				console.log(autocomplete.getPlace());
-			});	
-		}
+	var hospitalNum = 0;
+	
+	function mapForm() {
+		var input = document.getElementById("place-input");
+
+		var autocomplete = new google.maps.places.Autocomplete(input, {});
+		autocomplete.addListener('place_changed', function() {
+			console.log(autocomplete.getPlace());
+			
+			var place = autocomplete.getPlace();
+			var frontAddr = place.address_components[1].short_name + " " + place.address_components[0].short_name + ", " + 
+						place.address_components[4].short_name + ", " + place.address_components[5].short_name;
+			
+			$("#hospitals[" + hospitalNum + "].name").val(place.name);
+			$("#hospitals[" + hospitalNum + "].address").val(place.address_components[1].long_name + " " + place.address_components[0].long_name);
+			$("#hospitals[" + hospitalNum + "].latitude").val(place.geometry.location.lat());
+			$("#hospitals[" + hospitalNum + "].longitude").val(place.geometry.location.lng());
+
+			$("#hospital-card["+ hospitalNum +"]").show()
+			$("#hospital-card["+ hospitalNum +"]").find(".hospital-name").append(place.name);
+			$("#hospital-card["+ hospitalNum +"]").find(".hospital-address").append(frontAddr);
+			
+			hospitalNum += 1;
+		});	
+	}
+
+		
 	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6N15_BF6SfeCXrGdzzmGnl8IFS0DsyYU&callback=mapForm&libraries=places"></script>
 </body>

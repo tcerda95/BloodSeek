@@ -4,7 +4,7 @@ import laboratorioC.model.BloodType;
 
 public class CreateForm {
 
-	private static final int HOSPITALS = 10;
+	public static final int HOSPITALS = 10;
 	
 	private String name;
 	private String description;
