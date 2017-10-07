@@ -16,7 +16,8 @@
 <body>
 	<div class="container">
 		<c:url value="/create" var="postPath" />
-		<div class="row">titulo</div>
+		<div class="row">
+		<h2>Registrá un aviso de donación</h2></div>
 		<div class="row">
 			<form:form modelAttribute="createForm" action="${postPath}" method="post" class="form-horizontal">
 				<div class="row">
@@ -47,7 +48,22 @@
 						</div>
 					</div> 
 				</div>
-			
+				<div class="row">
+					<div class="col-md-12 form-group">
+						<form:label path="description" class ="col-sm-3 control-label">Descripción:</form:label>
+						<div class="col-sm-9">
+							<form:textarea path="description" class="form-control" placeholder="Descripción"/>
+						</div>
+					</div> 
+				</div>
+				<div class="row">
+					<div class="col-md-12 form-group">
+						<form:label path="password" class ="col-sm-3 control-label">Contraseña para editar:</form:label>
+						<div class="col-sm-9">
+							<form:password path="password" class="form-control" placeholder="Contraseña"/>
+						</div>
+					</div> 
+				</div>
 			</form:form>
 		</div>
 		
