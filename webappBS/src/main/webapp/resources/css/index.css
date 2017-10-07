@@ -1,21 +1,42 @@
+body {
+    background-color: #EEEEEE;
+}
+
+.titlecontainer {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pageTitle {
+    font-weight: 600;
+    /*color: #e40406;*/
+    font-size: 5rem;
+    text-align: center;
+}
+
 .grantee-card {
 	height: 15rem;
 	background-color: white;
     font-size: 1.5rem;
     margin-top: 3rem;
+    border-style: solid;
+    border-color: #7b7b7b;
+    border-width: 2px;
 }
 
 .grantee-card:hover {
     height: 15rem;
-    background-color: #AAAAAA;
+    background-color: #DDDDDD;
     font-size: 1.5rem;
     margin-top: 3rem;
     cursor: pointer;
 }
 
 .grantee-img {
-    width: 15rem;
-	height: auto;
+    width: auto;
+	height: 14.5rem;
 }
 
 .imgContainer {
@@ -29,23 +50,32 @@
 }
 
 .grantee-name {
-	font-size: 2rem;
+	font-size: 3rem;
 	font-weight: 700;
 }
 
 .grantee-age {
 	font-size: 2rem;
+    color: #7b7b7b;
 }
 
 .grantee-bloodType {
-	font-weight: 700;
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
 }
 
-.grantee-remainingTime {
-	margin-top: 1.5rem;
+.percentageContainer {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .completedPercentage {
 	text-align: center;
 	margin-top: 3rem;
+    font-size: 3.5rem;
+}
+
+.grantee-hospital {
+    font-size: 1.7rem;
+    font-style: italic;
 }
