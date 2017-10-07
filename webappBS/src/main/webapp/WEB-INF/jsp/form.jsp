@@ -62,14 +62,36 @@
 					<div class="col-md-12 form-group">
 						<form:label path="bloodType" class ="col-sm-3 control-label">Tipo de Sangre:</form:label>
 						<div class="col-sm-6">
-						<form:select path="bloodType" class="form-control">
-							<c:forEach var="bloodTypeOption" items="${bloodTypes}">
-								<option value="${bloodTypeOption}">${bloodTypeOption.name}</option>
-							</c:forEach>
-						</form:select>
+							<form:select path="bloodType" class="form-control">
+								<c:forEach var="bloodTypeOption" items="${bloodTypes}">
+									<option value="${bloodTypeOption}">${bloodTypeOption.name}</option>
+								</c:forEach>
+							</form:select>
 						</div>
 					</div> 
 				</div>
+				<div class="row">
+					<div class="col-md-12 form-group">
+						<label class="col-sm-3 control-label">Hospital:</label>
+						<input type="text" class="form-control" placeholder="Hospital"/>
+						<c:forEach items="${createForm.hospitals}" varStatus="status">
+							<form:input type="text" path="hospitals[${status.index}].name" class="hide"/>
+							<form:input type="text" path="hospitals[${status.index}].address" class="hide"/>
+							<form:input type="text" path="hospitals[${status.index}].latitude" class="hide"/>
+							<form:input type="text" path="hospitals[${status.index}].longitude" class="hide"/>
+						</c:forEach>
+					</div>
+				</div>
+				<div class="hospital-card hide">
+					<div class="row">
+						<div class="col-md-12 hospital-name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 hospital-address">
+						</div>
+					</div>
+				<div>
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="description" class ="col-sm-3 control-label">Mensaje del donatario:</form:label>

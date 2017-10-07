@@ -4,10 +4,10 @@ public class Hospital {
 	private final int id;
 	private final String name;
 	private final String address;
-	private final double latitude;
-	private final double longitude;
+	private final float latitude;
+	private final float longitude;
 	
-	public Hospital(final int id, final String name, final String address, final double latitude, final double longitude) {
+	public Hospital(final int id, final String name, final String address, final float latitude, final float longitude) {
 		this.id = id;
 		this.name = name;
 		this.address = address;
@@ -27,11 +27,11 @@ public class Hospital {
 		return address;
 	}
 
-	public double getLatitude() {
+	public float getLatitude() {
 		return latitude;
 	}
 
-	public double getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
 

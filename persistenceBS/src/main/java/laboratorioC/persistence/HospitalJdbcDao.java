@@ -26,7 +26,7 @@ public class HospitalJdbcDao implements HospitalDao {
 		@Override
 		public Hospital mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Hospital(rs.getInt("hospitalId"), rs.getString("hospitalName"), rs.getString("hospitalAddress"), 
-					rs.getDouble("latitude"), rs.getDouble("longitude"));
+					rs.getFloat("latitude"), rs.getFloat("longitude"));
 		}
 		
 	};
