@@ -1,3 +1,11 @@
+a {
+	color: #333;
+}
+
+a:HOVER {
+	color: #333;
+}
+
 .navbar-brand {
 	padding: 0;
 }
