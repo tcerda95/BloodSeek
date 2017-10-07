@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS grantees (
 	granteeid SERIAL PRIMARY KEY,
-	name VARCHAR(64)
+	name VARCHAR(64),
+	age INTEGER
 );
