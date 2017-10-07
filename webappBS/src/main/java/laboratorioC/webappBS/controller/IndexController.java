@@ -25,18 +25,6 @@ public class IndexController {
 	public ModelAndView index(@RequestParam(value="bloodType", required = false) final String acceptedBlood) {
 		final ModelAndView mav = new ModelAndView("index");
 
-		Hospital h1 = new Hospital(1, "Hospital Alemán", "Dir", 56.0f, 65.0f);
-		Hospital h2 = new Hospital(1, "Hospital Ruso", "Dir", 56.0f, 65.0f);
-		List<Hospital> hospitals = new ArrayList<Hospital>();
-		hospitals.add(h1);
-		hospitals.add(h2);
-
-		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", BloodType.A_PLUS,
-				hospitals, 21, 50, 35);
-
-		List<Grantee> testList = new ArrayList<>();
-		testList.add(g);
-
 		List<BloodType> accBlood = new ArrayList<>();
 		if (acceptedBlood != null) {
 			for (char c: acceptedBlood.toCharArray()) {
@@ -72,16 +60,20 @@ public class IndexController {
 		List<Grantee> grantees = gs.getGranteeList();
 		List<Grantee> l = new ArrayList<>();
 
+		System.out.println("#grantees" + grantees.size());
+
 		if (!accBlood.isEmpty()) {
 			for (Grantee gr: grantees) {
 				if (!Collections.disjoint(accBlood, gr.getAcceptedDonors())) {
 					l.add(gr);
 				}
 			}
+		} else {
+			l = grantees;
 		}
+		System.out.println("#granteesFinal" + l.size());
 
 		mav.addObject("grantees",l);
-//		mav.addObject("grantees",gs.getGranteeList());
 
 		return mav;
 		

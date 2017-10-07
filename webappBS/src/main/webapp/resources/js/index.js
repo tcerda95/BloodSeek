@@ -34,6 +34,6 @@ $("#applyFilter").click(function () {
     if ($("input#CCChkBox").is(":checked")) {
         param += "c"
     }
-    window.location = document.URL + "?bloodType="param
-    location.reload()
+    console.log(param)
+    window.location.href = contextPath + "?bloodType=" + param
 })
