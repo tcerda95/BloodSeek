@@ -8,19 +8,19 @@ public class Grantee {
 	private final String description;
 	private final String password;
 	private final BloodType bloodType;
-	private final Hospital hospital;
+	private List<Hospital> hospitals;
 	private final int age;
 	private final int donorsNeeded;
 	private final int actualDonated;
 	
-	public Grantee(final int id, final String name, final String description, final String password, final BloodType bloodType, final Hospital hospital, 
+	public Grantee(final int id, final String name, final String description, final String password, final BloodType bloodType, final List<Hospital> hospitals, 
 			final int age, final int donorsNeeded, final int actualDonated) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.password = password;
 		this.bloodType = bloodType;
-		this.hospital = hospital;
+		this.hospitals = hospitals;
 		this.age = age;
 		this.donorsNeeded = donorsNeeded;
 		this.actualDonated = actualDonated;
@@ -50,8 +50,8 @@ public class Grantee {
 		return bloodType;
 	}
 
-	public Hospital getHospital() {
-		return hospital;
+	public List<Hospital> getHospitals() {
+		return hospitals;
 	}
 
 	public int getAge() {
@@ -87,5 +87,9 @@ public class Grantee {
 	@Override
 	public String toString() {
 		return this.name;
+	}
+
+	public void setHospitals(List<Hospital> hospitals) {
+		this.hospitals = hospitals;
 	}
 }

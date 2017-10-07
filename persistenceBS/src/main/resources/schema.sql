@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS grantees (
 	description VARCHAR(10000),
 	password VARCHAR(64) NOT NULL,
 	bloodType VARCHAR(16) NOT NULL,
-	hospitalAddress VARCHAR(64) REFERENCES hospitals(hospitalAddress) NOT NULL,
 	age INTEGER,
 	donorsNeeded INTEGER,
 	actualDonated INTEGER
@@ -16,4 +15,11 @@ CREATE TABLE IF NOT EXISTS hospitals (
 	hospitalAddress VARCHAR(64) NOT NULL UNIQUE,
 	latitude FLOAT NOT NULL,
 	longitude FLOAT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS donationPoints (
+	granteeId INTEGER REFERENCES grantees(granteeId) NOT NULL,
+	hospitalId INTEGER REFERENCES hospitals(hospitalId) NOT NULL,
+	
+	PRIMARY KEY(granteeId, hospitalId)
 );
