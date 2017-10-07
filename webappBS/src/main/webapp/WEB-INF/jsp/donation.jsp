@@ -1,24 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<link rel="stylesheet" href="<c:url value="/resources/css/donation.css"/>" crossorigin="anonymous">
+		<link rel="stylesheet" href="<c:url value="/resources/css/donation.css"/>">
+			<link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
 	</head>
 	
 	<body>
-		<nav class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">
-				<img alt="Brand" src="#">
-			</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3"> 
-			<button type="button" class="btn navbar-btn ask-donation-btn">Pedir donación</button>
-		</div>
-	</div>
-</nav>
+		<%@include file="navbar.jsp" %>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
@@ -63,7 +55,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<span class="donation-limit-date">Necesita donaciones hasta el: 08/10/2017</span>
+								<div class="donation-limit-date">Necesita donaciones hasta el: 08/10/2017</div>
 							</div>
 						</div>
 					</div>

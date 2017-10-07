@@ -35,10 +35,13 @@
 .donation-limit-date {
 	font-size: 1.2em;
 	color: #333;
+	margin-top: 10px;
+	font-weight: 500;
 }
 
 .where-to-donate {
 	font-size: 2em;
+	margin-bottom: 10px;
 }
 
 .ask-donation-btn {
@@ -52,5 +55,9 @@
 .ask-donation-btn:hover {
 	color: #fff;
 	background-color: #c50305 !important;
+}
 
+.donation-place-name {
+	font-weight: 500;
+	font-size: 1.3em;
 }
