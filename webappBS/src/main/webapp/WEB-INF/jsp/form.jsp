@@ -73,7 +73,9 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<label class="col-sm-3 control-label">Punto de donación:</label>
-						<input id="place-input" type="text" class="form-control" placeholder="Punto de donación"/>
+						<div class="col-sm-6">
+							<input id="place-input" type="text" class="form-control" placeholder="Punto de donación"/>
+						</div>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
 							<form:input type="text" path="hospitals[${status.index}].name" class="hide"/>
 							<form:input type="text" path="hospitals[${status.index}].address" class="hide"/>
