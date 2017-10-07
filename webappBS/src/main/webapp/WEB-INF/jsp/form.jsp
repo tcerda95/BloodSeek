@@ -72,8 +72,8 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 form-group">
-						<label class="col-sm-3 control-label">Hospital:</label>
-						<input type="text" class="form-control" placeholder="Hospital"/>
+						<label class="col-sm-3 control-label">Punto de donación:</label>
+						<input id="place-input" type="text" class="form-control" placeholder="Punto de donación"/>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
 							<form:input type="text" path="hospitals[${status.index}].name" class="hide"/>
 							<form:input type="text" path="hospitals[${status.index}].address" class="hide"/>
@@ -116,7 +116,6 @@
 			</form:form>
 		</div>
 		
-		
 	</div>
 
 
@@ -126,5 +125,16 @@
 	<script type="text/javascript" src="<c:url value='https://code.jquery.com/jquery-2.1.1.min.js'/>"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script>
+		function mapForm() {
+			var input = document.getElementById("place-input");
+
+			var autocomplete = new google.maps.places.Autocomplete(input, {});
+			autocomplete.addListener('place_changed', function() {
+				console.log(autocomplete.getPlace());
+			});	
+		}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6N15_BF6SfeCXrGdzzmGnl8IFS0DsyYU&callback=mapForm&libraries=places"></script>
 </body>
 </html>

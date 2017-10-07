@@ -23,8 +23,8 @@ public class IndexController {
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView("index");
 
-		Hospital h1 = new Hospital(1, "Hospital Alemán", "Dir", 56.0, 65.0);
-		Hospital h2 = new Hospital(1, "Hospital Ruso", "Dir", 56.0, 65.0);
+		Hospital h1 = new Hospital(1, "Hospital Alemán", "Dir", 56.0f, 65.0f);
+		Hospital h2 = new Hospital(1, "Hospital Ruso", "Dir", 56.0f, 65.0f);
 		List<Hospital> hospitals = new ArrayList<Hospital>();
 		hospitals.add(h1);
 		hospitals.add(h2);
