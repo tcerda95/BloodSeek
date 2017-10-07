@@ -46,11 +46,11 @@
 					<div class="col-md-12 form-group">
 						<form:label path="name" class ="col-sm-3 control-label">Nombre:</form:label>
 						<div class="col-sm-4">
-							<form:input type="text" path="name" class="form-control" placeholder="Nombre" maxlength="64"/>
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="name" class="form-control" placeholder="Nombre" maxlength="64"/>
 						</div>
 						<form:label path="age" class ="col-sm-1 control-label">Edad:</form:label>
 						<div class="col-sm-1">
-							<form:input type="text" path="age" class="form-control" placeholder="Edad"/>
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="age" class="form-control" placeholder="Edad"/>
 						</div>
 					</div> 
 				</div>
@@ -66,7 +66,7 @@
 						</div>
 						<form:label path="donorsNeeded" class ="col-sm-2 control-label">Donaciones necesitadas:</form:label>
 						<div class="col-sm-1">
-							<form:input type="text" path="donorsNeeded" class="form-control" placeholder=""/>
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="donorsNeeded" class="form-control" placeholder=""/>
 						</div>
 					</div> 
 				</div>
@@ -74,7 +74,7 @@
 					<div class="col-md-12 form-group">
 						<label class="col-sm-3 control-label">Punto de donación:</label>
 						<div class="col-sm-6" >
-							<input class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
+							<input onkeydown="if (event.keyCode == 13) return false;" class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
 						</div>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
 							<form:input type="text" data-find="" path="hospitals[${status.index}].name" class="hide"/>
@@ -100,7 +100,7 @@
 					<div class="col-md-12 form-group">
 						<form:label path="description" class ="col-sm-3 control-label">Mensaje del donatario:</form:label>
 						<div class="col-sm-6">
-							<form:textarea path="description" class="form-control" placeholder="Descripción"/>
+							<form:textarea onkeydown="if (event.keyCode == 13) return false;" path="description" class="form-control" placeholder="Descripción"/>
 						</div>
 					</div> 
 				</div>
@@ -108,7 +108,7 @@
 					<div class="col-md-12 form-group">
 						<form:label path="password" class ="col-sm-3 control-label">Contraseña para editar:</form:label>
 						<div class="col-sm-3">
-							<form:password path="password" class="form-control" placeholder="Contraseña"/>
+							<form:password onkeydown="if (event.keyCode == 13) return false;" path="password" class="form-control" placeholder="Contraseña"/>
 						</div>
 					</div> 
 				</div>

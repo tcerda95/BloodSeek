@@ -50,7 +50,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="titleContainer">
-            <span class="pageTitle">¡Busca quién necesita sangre y dona!</span>
+            <span class="pageTitle">¡Buscá quién necesita sangre y doná!</span>
         </div>
     </div>
 </div>
