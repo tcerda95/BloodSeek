@@ -22,7 +22,9 @@ public class IndexController {
 	private GranteeService gs;
 	
 	@RequestMapping("/")
-	public ModelAndView index(@RequestParam(value="bloodType", required = false) final String acceptedBlood) {
+	public ModelAndView index(@RequestParam(value="bloodType", required = false) final String acceptedBlood,
+							  @RequestParam(value="long", required = false) final Double longitude,
+							  @RequestParam(value="lat", required = false) final Double latitude) {
 		final ModelAndView mav = new ModelAndView("index");
 
 		List<BloodType> accBlood = new ArrayList<>();
@@ -60,8 +62,6 @@ public class IndexController {
 		List<Grantee> grantees = gs.getGranteeList();
 		List<Grantee> l = new ArrayList<>();
 
-		System.out.println("#grantees" + grantees.size());
-
 		if (!accBlood.isEmpty()) {
 			for (Grantee gr: grantees) {
 				if (!Collections.disjoint(accBlood, gr.getAcceptedDonors())) {
@@ -71,7 +71,6 @@ public class IndexController {
 		} else {
 			l = grantees;
 		}
-		System.out.println("#granteesFinal" + l.size());
 
 		mav.addObject("grantees",l);
 

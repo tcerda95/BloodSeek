@@ -1,13 +1,4 @@
 
-// if ("geolocation" in navigator) {
-//     navigator.geolocation.getCurrentPosition(function (position) {
-//         var longitude = position.coords.longitude
-//         var latitude = position.coords.latitude
-//     })
-// } else {
-//     // no hay geolocalización
-// }
-
 $("#applyFilter").click(function () {
     var param = ""
     if ($("input#OChkBox").is(":checked")) {
@@ -34,6 +25,24 @@ $("#applyFilter").click(function () {
     if ($("input#CCChkBox").is(":checked")) {
         param += "c"
     }
-    console.log(param)
-    window.location.href = contextPath + "?bloodType=" + param
+    if($("input#nearMe").is(":checked")) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                window.location.href = contextPath + "?bloodType=" + param
+                var longitude = position.coords.longitude
+                var latitude = position.coords.latitude
+                console.log(longitude)
+                console.log(contextPath + "?bloodType=" + param + "&?lat=" + latitude + "&?long=" + longitude)
+                window.location.href = contextPath + "?bloodType=" + param + "&?lat=" + latitude + "&?long=" + longitude
+            },
+            function(error){
+                console.log(error)
+                alert("Error al obtener la localización")
+            }, {
+                enableHighAccuracy: true
+                ,timeout : 5000
+            })
+    } else {
+        window.location.href = contextPath + "?bloodType=" + param
+    }
 })

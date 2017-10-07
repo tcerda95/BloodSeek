@@ -38,7 +38,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="titleContainer">
-            <span class="pageTitle">¡Busca quién necesita sangre y dona!</span>
+            <span class="pageTitle">¡Buscá quién necesita sangre y doná!</span>
         </div>
     </div>
 </div>
@@ -125,7 +125,7 @@
             <div class="col-md-11 col-md-offset-1">
                 <div class="input-group">
                     <div class="row">
-                        <input type="checkbox" aria-label="...">
+                        <input id="nearMe" type="checkbox" aria-label="...">
                         <span>
                         Donaciones cerca mío
                     </span>
@@ -157,7 +157,6 @@
                                     <div class="grantee-nameContainer">
                                         <div class="grantee-name">
                                                 ${g.name}
-                                                <%--Pedro Balaguer--%>
                                         </div>
                                         <div class="ageContainer">
                                             <span class="grantee-age">${g.age} años</span>
@@ -188,14 +187,13 @@
                                             </c:forEach>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="percentageContainer">
-                                            <div class="completedPercentage">
-                                                    ${1.0 * g.actualDonated / g.donorsNeeded * 100}%
-                                                    <%--50%--%>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%--<div class="col-md-4">--%>
+                                        <%--<div class="percentageContainer">--%>
+                                            <%--<div class="completedPercentage">--%>
+                                                    <%--${1.0 * g.actualDonated / g.donorsNeeded * 100}%--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
                                 </div>
                             </div>
                         </div>
