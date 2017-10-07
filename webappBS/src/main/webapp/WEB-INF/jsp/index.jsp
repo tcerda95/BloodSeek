@@ -23,10 +23,10 @@
 %>
 <script>
     var param = document.URL.split("#")[1]
-    if (param) {
-	    for (var i = 0, len = param.length; i < len; i++) {
-	        console.log(param[i])
-	    }
+    if(param) {
+    for (var i = 0, len = param.length; i < len; i++) {
+        console.log(param[i])
+    }
     }
 </script>
 
@@ -154,6 +154,7 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <c:forEach items="${grantees}" var="g">
+        	<a href="<c:url value="/donation/${g.id}"/>">
             <div class="panel panel-default grantee-card">
                 <div class="panel-body">
                     <div class="row">
@@ -213,6 +214,7 @@
                     </div>
                 </div>
             </div>
+        </a>
         </c:forEach>
     </div>
 </div>
