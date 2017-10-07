@@ -158,12 +158,14 @@
             <div class="panel panel-default grantee-card">
                 <div class="panel-body">
                     <div class="row">
+<!--
                         <div class="col-md-3">
                             <div class="imgContainer">
                                 <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
                             </div>
                         </div>
-                        <div class="col-md-9">
+-->
+                        <div class="col-md-12">
                             <div class="cardInfoContainer">
                                 <div class="row">
                                     <div class="grantee-nameContainer">
@@ -200,6 +202,7 @@
                                             </c:forEach>
                                         </div>
                                     </div>
+<!--
                                     <div class="col-md-4">
                                         <div class="percentageContainer">
                                             <div class="completedPercentage">
@@ -208,6 +211,7 @@
                                             </div>
                                         </div>
                                     </div>
+-->
                                 </div>
                             </div>
                         </div>
