@@ -50,9 +50,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="blood-types">
-											 <c:forEach items="${grantees.acceptedDonors}" var="bloodType">
+											 <c:forEach items="${donorBloodTypes}" var="bloodType">
 												<span class="blood-type">
-													${bloodType}
+													${bloodType.name}
 												</span>
 											</c:forEach>
 										</div>
@@ -60,20 +60,22 @@
 								</div>
 							</div> 
 						</div>
+<!--
 						<div class="row">
 							<div class="col-md-12">
 								<div class="donation-limit-date">Necesita donaciones hasta el: 08/10/2017</div>
 							</div>
 						</div>
+-->
 						<div class="row">
 						<div class="col-md-12">
 							<div class="where-to-donate">¿Donde donar?</div>
 						</div>
 					</div>
-						<c:forEach items="${grantees.hospitals}" var="hospital">
+						<c:forEach items="${hospitalsAvailable}" var="hospital">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="donation-place panel panel-default">
+									<div class="donation-place panel panel-default place-panel">
 										<div class="panel-body">
 											<div class="donation-place-name">${hospital.name}</div>
 											<div class="donation-place-info">${hospital.address}</div>
@@ -86,6 +88,11 @@
 					</div>
 				</div>
 				<div class="col-md-7">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="grantee-msg">Mensaje de ${grantee.name}:</div>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-md-12">
 						<p class="grantee-bio">${grantee.description}</p>
@@ -154,23 +161,23 @@
 		<script>
 		function myMap() {
 			var mapProp= {
-				center:new google.maps.LatLng(${grantees.hospitals[0].latitude},${grantees.hospitals[0].longitude}),
+				center:new google.maps.LatLng(${hospitalsAvailable[0].latitude},${hospitalsAvailable[0].longitude}),
 				zoom:12,
 			};
 			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 			
-			<c:forEach items="${grantees.hospitals}" var="hospital">
-				var marker${hospital.name} = new google.maps.Marker({
+			<c:forEach items="${hospitalsAvailable}" var="hospital" varStatus="loop">
+				var marker${loop.index} = new google.maps.Marker({
 					position: new google.maps.LatLng(${hospital.latitude}, ${hospital.longitude})
 				});
 
-				var infowindow = new google.maps.InfoWindow({
-					content: ${hospital.name}
+				var infowindow${loop.index} = new google.maps.InfoWindow({
+					content: "${hospital.name}"
 				});
 
-				infowindow.open(map, marker${hospital.name});
+				infowindow${loop.index}.open(map, marker${loop.index});
 
-				marker.setMap(map);
+				marker${loop.index}.setMap(map);
 			</c:forEach>
 		};		
 		</script>
