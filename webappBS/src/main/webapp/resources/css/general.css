@@ -6,6 +6,19 @@
 	width: 40px;
 }
 
+.ask-donation-btn {
+	background-color: #e40406 !important;
+	background: 0;
+	color: #fff;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.ask-donation-btn:hover {
+	color: #fff;
+	background-color: #c50305 !important;
+}
+
 .blood-type {
 	padding: 10px;
 	background-color: #e40406;

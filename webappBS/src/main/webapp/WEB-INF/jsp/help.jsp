@@ -4,9 +4,33 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+					<link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
+
 	</head>
 	<body>
-		<div class="container ">
+		<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="<c:url value="/"/>">
+				<img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+			</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1"> 
+			<ul class="nav navbar-nav">
+				<li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+			  </ul>
+			<button type="button" class="btn navbar-btn ask-donation-btn">Pedir donación</button>
+		</div>
+	</div>
+</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Preguntas frecuentes sobre la donación de sangre</h1>
+				</div>
+			</div>
 		    <div class="panel-group" id="faqAccordion">
 		        <div class="panel panel-default ">
 		            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
