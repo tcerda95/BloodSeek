@@ -45,15 +45,11 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="name" class ="col-sm-3 control-label">Nombre:</form:label>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<form:input type="text" path="name" class="form-control" placeholder="Nombre" maxlength="64"/>
 						</div>
-					</div> 
-				</div>
-				<div class="row">
-					<div class="col-md-12 form-group">
-						<form:label path="age" class ="col-sm-3 control-label">Edad:</form:label>
-						<div class="col-sm-6">
+						<form:label path="age" class ="col-sm-1 control-label">Edad:</form:label>
+						<div class="col-sm-1">
 							<form:input type="text" path="age" class="form-control" placeholder="Edad"/>
 						</div>
 					</div> 
@@ -61,12 +57,16 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="bloodType" class ="col-sm-3 control-label">Tipo de Sangre:</form:label>
-						<div class="col-sm-6">
+						<div class="col-sm-1">
 							<form:select path="bloodType" class="form-control">
 								<c:forEach var="bloodTypeOption" items="${bloodTypes}">
 									<option value="${bloodTypeOption}">${bloodTypeOption.name}</option>
 								</c:forEach>
 							</form:select>
+						</div>
+						<form:label path="donorsNeeded" class ="col-sm-2 control-label">Donaciones necesitadas:</form:label>
+						<div class="col-sm-1">
+							<form:input type="text" path="donorsNeeded" class="form-control" placeholder=""/>
 						</div>
 					</div> 
 				</div>
@@ -86,7 +86,7 @@
 				</div>
 				
 				<c:forEach begin="0" end="${hospitalNum}" var="idx">
-					<div class="hospital-card hospital-hide" id="hospital-card${idx}">
+					<div class="panel panel-default col-md-4 col-md-offset-3 hospital-card hospital-hide" id="hospital-card${idx}">
 						<div class="row">
 							<div class="col-md-12 hospital-name"></div>
 						</div>
@@ -107,14 +107,14 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="password" class ="col-sm-3 control-label">Contraseña para editar:</form:label>
-						<div class="col-sm-6">
+						<div class="col-sm-3">
 							<form:password path="password" class="form-control" placeholder="Contraseña"/>
 						</div>
 					</div> 
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-						<input class="btn" type="submit" value="Publicar"/>
+					<div class="col-md-12 centered">
+						<input class="btn post-btn" type="submit" value="Publicar"/>
 					</div>
 				</div>
 			</form:form>

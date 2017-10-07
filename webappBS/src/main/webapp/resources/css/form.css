@@ -1,9 +1,21 @@
 .title {
 	text-align: center;
 	font-weight: 300;
-	font-size: 2em;
+	font-size: 2.6em;
 }
 
-.hspital-hide {
+.hospital-hide {
 	display: none;
 }
+
+.centered {
+	text-align: center;
+}
+
+.post-btn {
+	font-size: 25px;
+    color: white;
+    background: #e40406;
+}
+
+.
