@@ -19,12 +19,14 @@
 <body>
 
 <%
-    List<String> bloodTypeFilter = new ArrayList<>();
+    List<String> bloodTypeFilter = new ArrayList<String>();
 %>
 <script>
     var param = document.URL.split("#")[1]
-    for (var i = 0, len = param.length; i < len; i++) {
-        console.log(param[i])
+    if (param) {
+	    for (var i = 0, len = param.length; i < len; i++) {
+	        console.log(param[i])
+	    }
     }
 </script>
 
