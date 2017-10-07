@@ -65,6 +65,11 @@ public class HospitalJdbcDao implements HospitalDao {
 	public Hospital createHospital(String name, String address, float latitude, float longitude) {
 		final Map<String, Object> args = new HashMap<>();
 		
+		Hospital hospital = getHospitalByAddress(address);
+		
+		if (hospital != null)
+			return hospital;
+		
 		args.put("hospitalName", name);
 		args.put("hospitalAddress", address);
 		args.put("latitude", latitude);
