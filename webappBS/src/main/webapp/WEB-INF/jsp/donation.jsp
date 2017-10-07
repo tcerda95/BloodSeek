@@ -10,7 +10,23 @@
 	</head>
 	
 	<body>
-		<%@include file="navbar.jsp" %>
+		<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="<c:url value="/"/>">
+				<img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+			</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1"> 
+			<ul class="nav navbar-nav">
+				<li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
+				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+			  </ul>
+			<button type="button" class="btn navbar-btn ask-donation-btn">Pedir donación</button>
+		</div>
+	</div>
+</nav>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
@@ -93,68 +109,57 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<span>
+						<button id="copy-link-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Copiado al portapapeles"></span>Copiar Link</button>
+					</span>
+					<span>
+						<button id="download-img-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-download-alt"></span>Descargar como imagen</button>
+					</span>
+				</div>
+			</div>
+			<div class="row share-buttons-row">
+				<div class="col-md-12">
 					<span id="fb-root" class="fb-share-button" data-href="#" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Compartir</a></span>
-						<a class="twitter-share-button"
+					<span><a class="twitter-share-button"
 					  	href="https://twitter.com/intent/tweet"
 					  	data-size="large">
-						Tweet</a>
+							Tweet</a>
+					</span>
 				</div>
 			</div>
 		</div>
 
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-			
-			
-		<script>window.twttr = (function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0],
-				t = window.twttr || {};
-			  if (d.getElementById(id)) return t;
-			  js = d.createElement(s);
-			  js.id = id;
-			  js.src = "https://platform.twitter.com/widgets.js";
-			  fjs.parentNode.insertBefore(js, fjs);
-
-			  t._e = [];
-			  t.ready = function(f) {
-				t._e.push(f);
-			  };
-
-			  return t;
-			}(document, "script", "twitter-wjs"));
-		</script>
-			
 		<script>
-			function myMap() {
-				var mapProp= {
-					center:new google.maps.LatLng(51.508742,-0.120850),
-					zoom:12,
-				};
-				var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-				var marker = new google.maps.Marker({
-					position: new google.maps.LatLng(52, -0.121)
-				});
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 
-				var infowindow = new google.maps.InfoWindow({
-					content:"Hello World!"
-				});
+		window.twttr = (function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+			if (d.getElementById(id)) return t;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
 
-				infowindow.open(map, marker);
+			t._e = [];
+			t.ready = function(f) {
+				t._e.push(f);
+			};
 
-				marker.setMap(map);
-
-			};		
+			return t;
+		}(document, "script", "twitter-wjs"));
 		</script>
-		
-<!--		API KEY URL SHORTENER: AIzaSyAdU3wmVgwO_MJ5X2IMXKXz9lTAJ__tyvQ-->
-
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6N15_BF6SfeCXrGdzzmGnl8IFS0DsyYU&callback=myMap&libraries=places"></script>
 		<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+		<script src="<c:url value="/resources/js/donation.js"/>"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6N15_BF6SfeCXrGdzzmGnl8IFS0DsyYU&callback=myMap&libraries=places"></script>
+		
 	</body>
 </html>

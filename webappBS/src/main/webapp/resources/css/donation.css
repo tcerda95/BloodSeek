@@ -44,20 +44,16 @@
 	margin-bottom: 10px;
 }
 
-.ask-donation-btn {
-	background-color: #e40406 !important;
-	background: 0;
-	color: #fff;
-	font-weight: 400;
-	letter-spacing: 1px;
-}
-
-.ask-donation-btn:hover {
-	color: #fff;
-	background-color: #c50305 !important;
-}
-
 .donation-place-name {
 	font-weight: 500;
 	font-size: 1.3em;
 }
+.share-buttons-row {
+	margin-top: 15px;
+}
+
+#download-img-btn {
+	margin: 0 5px;
+}
+
+
