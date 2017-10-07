@@ -29,6 +29,7 @@ body {
     font-size: 1.5rem !important;
     background-color: #c50305 !important;
     letter-spacing: 1px;
+	
 }
 
 .applyBtnContainer {
@@ -40,16 +41,15 @@ body {
 }
 
 .titlecontainer {
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
 }
 
 .pageTitle {
-    font-weight: 600;
+    font-weight: 400;
     /*color: #e40406;*/
-    font-size: 5rem;
+    font-size: 3.5rem;
     text-align: center;
 }
 
@@ -57,6 +57,7 @@ body {
 	height: 18rem;
 	background-color: white;
     font-size: 1.5rem;
+	padding-left: 1.5em;
 }
 
 .grantee-card:hover {
@@ -64,6 +65,7 @@ body {
     background-color: #DDDDDD;
     font-size: 1.5rem;
     cursor: pointer;
+	transition: all 0.2s;
 }
 
 .cardInfoContainer {

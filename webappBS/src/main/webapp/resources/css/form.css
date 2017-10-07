@@ -1,9 +1,35 @@
 .title {
 	text-align: center;
 	font-weight: 300;
-	font-size: 2em;
+	font-size: 2.6em;
 }
 
-.hspital-hide {
+.hospital-hide {
 	display: none;
+}
+
+.centered {
+	text-align: center;
+}
+
+.post-btn {
+	font-size: 1.4em;
+	margin-top: 1em;
+	padding: 10px 25px;
+	color: #fff;
+	background: #e40406;
+}
+
+.post-btn:hover {
+	color: #fff;
+	background: #c50305 !important;
+}
+
+.hospital-card {
+	font-size: 1.1em;
+    padding: 0.2em;
+}
+.hospital-name {
+	font-size: 1.2em;
+font-weight: 500;
 }

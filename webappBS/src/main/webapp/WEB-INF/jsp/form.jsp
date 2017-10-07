@@ -45,28 +45,28 @@
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="name" class ="col-sm-3 control-label">Nombre:</form:label>
-						<div class="col-sm-6">
-							<form:input type="text" path="name" class="form-control" placeholder="Nombre" maxlength="64"/>
+						<div class="col-sm-4">
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="name" class="form-control" placeholder="Nombre" maxlength="64"/>
 						</div>
-					</div> 
-				</div>
-				<div class="row">
-					<div class="col-md-12 form-group">
-						<form:label path="age" class ="col-sm-3 control-label">Edad:</form:label>
-						<div class="col-sm-6">
-							<form:input type="text" path="age" class="form-control" placeholder="Edad"/>
+						<form:label path="age" class ="col-sm-1 control-label">Edad:</form:label>
+						<div class="col-sm-1">
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="age" class="form-control" placeholder="Edad"/>
 						</div>
 					</div> 
 				</div>
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="bloodType" class ="col-sm-3 control-label">Tipo de Sangre:</form:label>
-						<div class="col-sm-6">
+						<div class="col-sm-1">
 							<form:select path="bloodType" class="form-control">
 								<c:forEach var="bloodTypeOption" items="${bloodTypes}">
 									<option value="${bloodTypeOption}">${bloodTypeOption.name}</option>
 								</c:forEach>
 							</form:select>
+						</div>
+						<form:label path="donorsNeeded" class ="col-sm-2 control-label">Donaciones necesitadas:</form:label>
+						<div class="col-sm-1">
+							<form:input onkeydown="if (event.keyCode == 13) return false;" type="text" path="donorsNeeded" class="form-control" placeholder=""/>
 						</div>
 					</div> 
 				</div>
@@ -74,7 +74,7 @@
 					<div class="col-md-12 form-group">
 						<label class="col-sm-3 control-label">Punto de donación:</label>
 						<div class="col-sm-6" >
-							<input class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
+							<input onkeydown="if (event.keyCode == 13) return false;" class="form-control" id="place-input" type="text" placeholder="Punto de donación"/>
 						</div>
 						<c:forEach items="${createForm.hospitals}" varStatus="status">
 							<form:input type="text" data-find="" path="hospitals[${status.index}].name" class="hide"/>
@@ -86,12 +86,14 @@
 				</div>
 				
 				<c:forEach begin="0" end="${hospitalNum}" var="idx">
-					<div class="hospital-card hospital-hide" id="hospital-card${idx}">
-						<div class="row">
-							<div class="col-md-12 hospital-name"></div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 hospital-address"></div>
+					<div class="panel panel-default col-md-5 col-md-offset-3 hospital-card hospital-hide" id="hospital-card${idx}">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12 hospital-name"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 hospital-address"></div>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -100,21 +102,21 @@
 					<div class="col-md-12 form-group">
 						<form:label path="description" class ="col-sm-3 control-label">Mensaje del donatario:</form:label>
 						<div class="col-sm-6">
-							<form:textarea path="description" class="form-control" placeholder="Descripción"/>
+							<form:textarea onkeydown="if (event.keyCode == 13) return false;" path="description" class="form-control" placeholder="Descripción"/>
 						</div>
 					</div> 
 				</div>
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="password" class ="col-sm-3 control-label">Contraseña para editar:</form:label>
-						<div class="col-sm-6">
-							<form:password path="password" class="form-control" placeholder="Contraseña"/>
+						<div class="col-sm-3">
+							<form:password onkeydown="if (event.keyCode == 13) return false;" path="password" class="form-control" placeholder="Contraseña"/>
 						</div>
 					</div> 
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-						<input class="btn" type="submit" value="Publicar"/>
+					<div class="col-md-12 centered">
+						<input class="btn post-btn" type="submit" value="Publicar"/>
 					</div>
 				</div>
 			</form:form>
@@ -141,13 +143,12 @@
 			console.log(autocomplete.getPlace());
 			
 			var place = autocomplete.getPlace();
-			var frontAddr = place.address_components[1].short_name + " " + place.address_components[0].short_name + ", " + 
-						place.address_components[4].short_name + ", " + place.address_components[5].short_name;
+			var frontAddr = place.formatted_address;
 
 			console.log($("#hospitals" + hospitalNum + "\\.name"));
 			
 			$("#hospitals" + hospitalNum + "\\.name").attr("value", place.name);
-			$("#hospitals" + hospitalNum + "\\.address").attr("value", place.address_components[1].long_name + " " + place.address_components[0].long_name);
+			$("#hospitals" + hospitalNum + "\\.address").attr("value", place.formatted_address);
 			$("#hospitals" + hospitalNum + "\\.latitude").attr("value", place.geometry.location.lat());
 			$("#hospitals" + hospitalNum + "\\.longitude").attr("value", place.geometry.location.lng());
 

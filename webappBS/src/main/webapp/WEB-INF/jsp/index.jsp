@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
-                <li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+                <li><a href="<c:url value="/help"/>">Ayuda</a></li>
             </ul>
             <a href="<c:url value="/create"/>" class="btn navbar-btn ask-donation-btn">Pedir donación</a>
         </div>
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-11 col-md-offset-1">
                 <div class="row">
-                    <span>Receptor:</span>
+                    <span>Tipo de sangre necesitada:</span>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2">
@@ -125,7 +125,7 @@
             <div class="col-md-11 col-md-offset-1">
                 <div class="input-group">
                     <div class="row">
-                        <input id="nearMe" type="checkbox" aria-label="...">
+                        <input type="checkbox" aria-label="...">
                         <span>
                         Donaciones cerca mío
                     </span>
@@ -146,17 +146,20 @@
             <div class="panel panel-default grantee-card">
                 <div class="panel-body">
                     <div class="row">
+<!--
                         <div class="col-md-3">
                             <div class="imgContainer">
                                 <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
                             </div>
                         </div>
-                        <div class="col-md-9">
+-->
+                        <div class="col-md-12">
                             <div class="cardInfoContainer">
                                 <div class="row">
                                     <div class="grantee-nameContainer">
                                         <div class="grantee-name">
                                                 ${g.name}
+                                                <%--Pedro Balaguer--%>
                                         </div>
                                         <div class="ageContainer">
                                             <span class="grantee-age">${g.age} años</span>
