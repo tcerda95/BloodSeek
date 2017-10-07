@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="<c:url value="/"/>">
-				<img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+				<img alt="Bloodseek" src="<c:url value="/resources/img/logo2.png"/>">
 			</a>
 		</div>
 		
