@@ -34,23 +34,3 @@ $('#copy-link-btn').on('click', function(event) {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
-
-function myMap() {
-	var mapProp= {
-		center:new google.maps.LatLng(51.508742,-0.120850),
-		zoom:12,
-	};
-	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(52, -0.121)
-	});
-
-	var infowindow = new google.maps.InfoWindow({
-		content:"Hello World!"
-	});
-
-	infowindow.open(map, marker);
-
-	marker.setMap(map);
-
-};		

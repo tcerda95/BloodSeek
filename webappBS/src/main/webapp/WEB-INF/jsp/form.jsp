@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
-				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+				<li><a href="<c:url value="/help"/>">Ayuda</a></li>
             </ul>
         </div>
     </div>
@@ -86,17 +86,16 @@
 				</div>
 				
 				<c:forEach begin="0" end="${hospitalNum}" var="idx">
-					<div class="hospital-card hide" id="hospital-card${idx}">
+					<div class="hospital-card hospital-hide" id="hospital-card${idx}">
 						<div class="row">
-							<div class="col-md-12 hospital-name">
-							</div>
+							<div class="col-md-12 hospital-name"></div>
 						</div>
 						<div class="row">
-							<div class="col-md-12 hospital-address">
-							</div>
+							<div class="col-md-12 hospital-address"></div>
 						</div>
-					<div>
+					</div>
 				</c:forEach>
+				
 				<div class="row">
 					<div class="col-md-12 form-group">
 						<form:label path="description" class ="col-sm-3 control-label">Mensaje del donatario:</form:label>
@@ -150,9 +149,9 @@
 			$("#hospitals[" + hospitalNum + "].latitude").val(place.geometry.location.lat());
 			$("#hospitals[" + hospitalNum + "].longitude").val(place.geometry.location.lng());
 
-			$("#hospital-card["+ hospitalNum +"]").show()
-			$("#hospital-card["+ hospitalNum +"]").find(".hospital-name").append(place.name);
-			$("#hospital-card["+ hospitalNum +"]").find(".hospital-address").append(frontAddr);
+			$("#hospital-card"+ hospitalNum).show()
+			$("#hospital-card"+ hospitalNum).find(".hospital-name").append(place.name);
+			$("#hospital-card"+ hospitalNum).find(".hospital-address").append(frontAddr);
 			
 			hospitalNum += 1;
 		});	

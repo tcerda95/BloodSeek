@@ -4,6 +4,6 @@
 	font-size: 2em;
 }
 
-.hide {
-	visibility: none;
+.hspital-hide {
+	display: none;
 }
