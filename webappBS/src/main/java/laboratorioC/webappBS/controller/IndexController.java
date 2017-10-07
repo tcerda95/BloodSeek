@@ -29,11 +29,11 @@ public class IndexController {
 		hospitals.add(h1);
 		hospitals.add(h2);
 
-		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", null,
+		Grantee g = new Grantee(0, "Pedro", "descr", "asdasd", BloodType.A_PLUS,
 				hospitals, 21, 50, 35);
 
 		List<Grantee> l = new ArrayList<>();
-		//l.add(g);
+		l.add(g);
 		mav.addObject("grantees",l);
 //		mav.addObject("grantees",gs.getGranteeList());
 
