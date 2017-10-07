@@ -64,6 +64,13 @@
 						</div>
 					</div> 
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-sm-9 colsm-offset-3">
+							<input class="btn" type="submit" value="Publicar"/>
+						</div>
+					</div>
+				</div>
 			</form:form>
 		</div>
 		
