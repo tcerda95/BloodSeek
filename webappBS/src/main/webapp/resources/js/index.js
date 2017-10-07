@@ -1,4 +1,0 @@
-
-// $(".grantee-card").onmouseover(function () {
-//
-// })

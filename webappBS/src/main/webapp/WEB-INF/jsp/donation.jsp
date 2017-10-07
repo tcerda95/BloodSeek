@@ -6,7 +6,7 @@
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		<link rel="stylesheet" href="<c:url value="/resources/css/donation.css"/>">
-			<link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
+		<link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
 	</head>
 	
 	<body>
@@ -93,13 +93,42 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span>Redes Sociales</span>
-					<span></span>
-					<span></span>
+					<span id="fb-root" class="fb-share-button" data-href="#" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Compartir</a></span>
+						<a class="twitter-share-button"
+					  	href="https://twitter.com/intent/tweet"
+					  	data-size="large">
+						Tweet</a>
 				</div>
 			</div>
 		</div>
 
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+			
+			
+		<script>window.twttr = (function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+			  if (d.getElementById(id)) return t;
+			  js = d.createElement(s);
+			  js.id = id;
+			  js.src = "https://platform.twitter.com/widgets.js";
+			  fjs.parentNode.insertBefore(js, fjs);
+
+			  t._e = [];
+			  t.ready = function(f) {
+				t._e.push(f);
+			  };
+
+			  return t;
+			}(document, "script", "twitter-wjs"));
+		</script>
+			
 		<script>
 			function myMap() {
 				var mapProp= {
