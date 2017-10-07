@@ -11,9 +11,27 @@
     <link rel="stylesheet" href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>" crossorigin="anonymous">
+	
+    <link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
 </head>
 
 <body>
+	<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="<c:url value="/"/>">
+                <img alt="Bloodseek" src="<c:url value="/resources/img/logo.png"/>">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="<c:url value="/"/>">Inicio<span class="sr-only">(current)</span></a></li>
+				<li><a href="<c:url value="/help"/>">¿Cómo dono?</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 	<div class="container">
 		<c:url value="/create" var="postPath" />
 		<div class="row">
