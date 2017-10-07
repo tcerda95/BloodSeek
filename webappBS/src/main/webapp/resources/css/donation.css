@@ -44,10 +44,13 @@
 	margin: 0 5px;
 }
 
-
-
 .place-panel {
 	margin-bottom: 5px;
+}
+
+.place-panel:hover {
+	background-color: #d7d7d7;
+	cursor: pointer;
 }
 
 .grantee-msg {

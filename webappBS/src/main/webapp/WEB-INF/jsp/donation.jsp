@@ -72,10 +72,10 @@
 							<div class="where-to-donate">¿Donde donar?</div>
 						</div>
 					</div>
-						<c:forEach items="${hospitalsAvailable}" var="hospital">
+						<c:forEach items="${hospitalsAvailable}" var="hospital" varStatus="lo">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="donation-place panel panel-default place-panel">
+									<div id="place-${lo.index}" class="donation-place panel panel-default place-panel">
 										<div class="panel-body">
 											<div class="donation-place-name">${hospital.name}</div>
 											<div class="donation-place-info">${hospital.address}</div>
@@ -114,9 +114,11 @@
 					<span>
 						<button id="copy-link-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Copiado al portapapeles"></span>Copiar Link</button>
 					</span>
+<!--
 					<span>
 						<button id="download-img-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-download-alt"></span>Descargar como imagen</button>
 					</span>
+-->
 				</div>
 			</div>
 			<div class="row share-buttons-row">
@@ -159,6 +161,8 @@
 		</script>
 		
 		<script>
+		
+			
 		function myMap() {
 			var mapProp= {
 				center:new google.maps.LatLng(${hospitalsAvailable[0].latitude},${hospitalsAvailable[0].longitude}),
@@ -179,9 +183,23 @@
 
 				marker${loop.index}.setMap(map);
 			</c:forEach>
+			
+			function moveToLocation(lat, lng){
+			 var center = new google.maps.LatLng(lat, lng);
+			 map.panTo(center);
+
+		  	}
+			
+			<c:forEach items="${hospitalsAvailable}" var="hospital" varStatus="loop">
+				$('#place-${loop.index}').on('click', function() {
+					moveToLocation(${hospital.latitude}, ${hospital.longitude});
+				});
+			
+			</c:forEach>
 		};		
 		</script>
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 		<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
