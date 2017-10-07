@@ -28,10 +28,10 @@
                         <div class="row">
                             <div class="grantee-nameContainer">
                                 <div class="grantee-name">
-                                    Nombre Apellido
+                                    ${g.name}
                                 </div>
                                 <div class="grantee-age">
-                                    26 años
+                                    ${g.age}
                                 </div>
                             </div>
                         </div>
@@ -39,23 +39,23 @@
                             <div class="col-md-8">
                                 <div class="row">
                                     <div class="grantee-bloodType">
-                                        O+
+                                        ${g.bloodType}
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="grantee-remainingTime">
-                                        26 días restantes
-                                    </div>
-                                </div>
+                                <%--<div class="row">--%>
+                                    <%--<div class="grantee-remainingTime">--%>
+                                        <%--26 días restantes--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
                                 <div class="row">
                                     <div class="grantee-hospital">
-                                        Hospital ASD
+                                        ${g.hospital}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="completedPercentage">
-                                    50%
+                                    ${g.actualDonated / g.donorsNeeded}%
                                 </div>
                             </div>
                         </div>
@@ -67,10 +67,10 @@
 </div>
 
 
-<%-- index.js --%>
-<script type="text/javascript" src="<c:url value='/resources/js/index.js'/>"></script>
 <%-- jQuery --%>
 <script type="text/javascript" src="<c:url value='https://code.jquery.com/jquery-2.1.1.min.js'/>"></script>
+<%-- index.js --%>
+<script type="text/javascript" src="<c:url value='/resources/js/index.js'/>"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>

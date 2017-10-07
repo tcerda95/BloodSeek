@@ -1,12 +1,20 @@
 .grantee-card {
 	height: 15rem;
-	background-color: grey;
-	font-size: 1.5rem;
-	margin-top: 3rem;
+	background-color: white;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+.grantee-card:hover {
+    height: 15rem;
+    background-color: #AAAAAA;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    cursor: pointer;
 }
 
 .grantee-img {
-	width: 15rem;
+    width: 15rem;
 	height: auto;
 }
 
