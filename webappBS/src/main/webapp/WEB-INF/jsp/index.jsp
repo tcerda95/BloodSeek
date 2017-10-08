@@ -43,110 +43,111 @@
     </div>
 </div>
 
-<div class="panel panel-default filters">
-    <span class="filtersTitle">Filtros</span>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-11 col-md-offset-1">
-                <div class="row">
-                    <span>Tipo de sangre necesitada:</span>
-                </div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-2">
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="OChkBox" type="checkbox" aria-label="...">
-                                <span>
-                                        O+
-                                    </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="OOChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            O-
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="AChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            A+
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="AAChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            A-
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="BChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            B+
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="BBChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            B-
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="CChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            AB+
-                        </span>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="row">
-                                <input id="CCChkBox" type="checkbox" aria-label="...">
-                                <span>
-                            AB-
-                        </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row nearContainer">
-            <div class="col-md-11 col-md-offset-1">
-                <div class="input-group">
+<div class="row"></div>
+<div class="col-md-3">
+    <div class="panel panel-default filters">
+        <span class="filtersTitle">Filtros</span>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
                     <div class="row">
-                        <input type="checkbox" aria-label="...">
-                        <span>
-                        Donaciones cerca mío
-                    </span>
+                        <span>Tipo de sangre necesitada:</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-2">
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="OChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                            O+
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="OOChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                O-
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="AChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                A+
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="AAChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                A-
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="BChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                B+
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="BBChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                B-
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="CChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                AB+
+                            </span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="row">
+                                    <input id="CCChkBox" type="checkbox" aria-label="...">
+                                    <span>
+                                AB-
+                            </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row applyBtnContainer">
-            <button id="applyFilter" type="button" class="btn btn-default applyBtn">Aplicar</button>
+            <div class="row nearContainer">
+                <div class="col-md-11 col-md-offset-1">
+                    <div class="input-group">
+                        <div class="row">
+                            <input type="checkbox" aria-label="...">
+                            <span>
+                            Donaciones cerca mío
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row applyBtnContainer">
+                <button id="applyFilter" type="button" class="btn btn-default applyBtn">Aplicar</button>
+            </div>
         </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <c:forEach items="${grantees}" var="g">
-        	<a href="<c:url value="/donation/${g.id}"/>">
+<div class="col-md-6 col-md-offset-1">
+    <c:forEach items="${grantees}" var="g">
+        <a href="<c:url value="/donation/${g.id}"/>">
             <div class="panel panel-default grantee-card">
                 <div class="panel-body">
                     <div class="row">
-<!--
+                        <!--
                         <div class="col-md-3">
                             <div class="imgContainer">
                                 <img class="grantee-img" src="<c:url value="https://trip101.com/assets/default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"/>" alt="picture">
@@ -190,13 +191,13 @@
                                             </c:forEach>
                                         </div>
                                     </div>
-                                    <%--<div class="col-md-4">--%>
+                                        <%--<div class="col-md-4">--%>
                                         <%--<div class="percentageContainer">--%>
-                                            <%--<div class="completedPercentage">--%>
-                                                    <%--${1.0 * g.actualDonated / g.donorsNeeded * 100}%--%>
-                                            <%--</div>--%>
+                                        <%--<div class="completedPercentage">--%>
+                                        <%--${1.0 * g.actualDonated / g.donorsNeeded * 100}%--%>
                                         <%--</div>--%>
-                                    <%--</div>--%>
+                                        <%--</div>--%>
+                                        <%--</div>--%>
                                 </div>
                             </div>
                         </div>
@@ -204,8 +205,7 @@
                 </div>
             </div>
         </a>
-        </c:forEach>
-    </div>
+    </c:forEach>
 </div>
 
 <%-- Context Path --%>

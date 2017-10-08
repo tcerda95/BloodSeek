@@ -3,7 +3,7 @@ body {
 }
 
 .filters {
-    position: fixed;
+    /*position: fixed;*/
     padding-left: 2rem;
     padding-right: 5rem;
     padding-top: 2rem;
